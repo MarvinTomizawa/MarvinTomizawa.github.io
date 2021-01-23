@@ -1,0 +1,7 @@
+@import-normalize;
+
+.App {
+  background-color: #1F232A;
+  min-height: 100vh;
+  color: white;
+}
