@@ -9,10 +9,17 @@ import NotFound from "./components/NotFound/NotFound";
 import Header from "./components/Header/Header";
 import RouteModel from "./models/RouteModel";
 
+const Contato = () => <h1>Contato</h1>;
+const Experiencia = () => <h1>Experiencia</h1>;
+const Habilidades = () => <h1>Habilidades</h1>;
+
 class App extends React.Component {
   private routes: RouteModel[] = [
     new RouteModel("/", "Home", Home, true),
     new RouteModel("/sobre", "Sobre", Sobre),
+    new RouteModel("/experiencia", "Experiencia", Experiencia),
+    new RouteModel("/habilidades", "Habildades", Habilidades),
+    new RouteModel("/contato", "Contato", Contato),
     new RouteModel("*", "NotFound", NotFound, false, false),
   ];
 
