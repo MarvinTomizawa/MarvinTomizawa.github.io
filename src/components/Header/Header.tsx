@@ -1,14 +1,23 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
+import { HeaderWrapper, LinkList, LinkListItem } from './HeaderStyles'
 
-export interface HeaderProps {
-  navigateTo: Function;
-}
-
-export interface HeaderState {}
-
-class Header extends React.PureComponent<HeaderProps, HeaderState> {
+class Header extends React.PureComponent{
   render() {
-    return <header></header>;
+    return (
+      <HeaderWrapper>
+        <nav>
+          <LinkList>
+            <LinkListItem>
+              <Link to="/">Home</Link>
+            </LinkListItem>
+            <LinkListItem>
+              <Link to="/sobre">Sobre</Link>
+            </LinkListItem>
+          </LinkList>
+        </nav>
+      </HeaderWrapper>
+    );
   }
 }
 

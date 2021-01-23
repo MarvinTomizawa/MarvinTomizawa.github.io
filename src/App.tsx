@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sobre from "./components/Sobre/Sobre";
 import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
+import Header from "./components/Header/Header";
 
 class App extends React.Component {
   constructor(props: any) {
@@ -14,9 +15,10 @@ class App extends React.Component {
   }
   render() {
     return (
-      <ThemeProvider theme={colorPalette}>
+      <ThemeProvider theme={{...colorPalette}}>
         <GlobalStyle></GlobalStyle>
         <Router>
+          <Header></Header>
           <Switch>
             <Route path="/" exact={true} component={Home} />
             <Route path="/sobre" exact={true} component={Sobre} />
