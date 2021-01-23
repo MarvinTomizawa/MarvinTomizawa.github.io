@@ -1,20 +1,28 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { HeaderWrapper, LinkList, LinkListItem } from './HeaderStyles'
+import RouteModel from "../../models/RouteModel";
+import { HeaderWrapper, LinkList, LinkListItem } from "./HeaderStyles";
 
-class Header extends React.PureComponent{
+interface HeaderProps {
+  routes: RouteModel[];
+}
+
+class Header extends React.PureComponent<HeaderProps> {
+  mapLinks() {
+    return this.props.routes
+      .filter((route) => route.show)
+      .map(route => (
+        <LinkListItem>
+          <Link to={route.path}>{route.description}</Link>
+        </LinkListItem>
+      ));
+  }
+
   render() {
     return (
       <HeaderWrapper>
         <nav>
-          <LinkList>
-            <LinkListItem>
-              <Link to="/">Home</Link>
-            </LinkListItem>
-            <LinkListItem>
-              <Link to="/sobre">Sobre</Link>
-            </LinkListItem>
-          </LinkList>
+          <LinkList>{this.mapLinks()}</LinkList>
         </nav>
       </HeaderWrapper>
     );

@@ -7,23 +7,32 @@ import Sobre from "./components/Sobre/Sobre";
 import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
 import Header from "./components/Header/Header";
+import RouteModel from "./models/RouteModel";
 
 class App extends React.Component {
-  constructor(props: any) {
-    super(props);
-    this.state = { placeholder: [] };
+  private routes: RouteModel[] = [
+    new RouteModel("/", "Home", Home, true),
+    new RouteModel("/sobre", "Sobre", Sobre),
+    new RouteModel("*", "NotFound", NotFound, false, false),
+  ];
+
+  mapRoutes() {
+    return this.routes.map((route) => (
+      <Route
+        path={route.path}
+        exact={route.exact}
+        component={route.component}
+      />
+    ));
   }
+
   render() {
     return (
-      <ThemeProvider theme={{...colorPalette}}>
+      <ThemeProvider theme={{ ...colorPalette }}>
         <GlobalStyle></GlobalStyle>
         <Router>
-          <Header></Header>
-          <Switch>
-            <Route path="/" exact={true} component={Home} />
-            <Route path="/sobre" exact={true} component={Sobre} />
-            <Route path="*" component={NotFound} />
-          </Switch>
+          <Header routes={this.routes}></Header>
+          <Switch>{this.mapRoutes()}</Switch>
         </Router>
       </ThemeProvider>
     );
