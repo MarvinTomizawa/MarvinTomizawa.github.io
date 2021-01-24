@@ -3,9 +3,9 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Ui/GlobalStyle";
 import { colorPalette } from "./components/Ui/Variables";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import Sobre from "./components/Sobre/Sobre";
-import Home from "./components/Home/Home";
-import NotFound from "./components/NotFound/NotFound";
+import Sobre from "./components/Content/Sobre/Sobre";
+import Home from "./components/Content/Home/Home";
+import NotFound from "./components/Content/NotFound/NotFound";
 import Header from "./components/Header/Header";
 import RouteModel from "./models/RouteModel";
 
