@@ -5,18 +5,19 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   background-color: ${({ theme }) => getPalette(theme).primary};
   display: flex;
+  height:18%;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-
+  
   @media (min-width: ${({ theme }) => getPalette(theme).mobileBreakingPoint}) {
     flex-direction: row;
     flex-wrap: nowrap;
-
+    height:12%;
     nav {
-      width: 40%;
       min-width: 400px;  
+      width: 40%;
     }
   }
 `;
@@ -34,7 +35,7 @@ export const LinkList = styled.ul`
 `;
 
 export const LinkListItem = styled.li`
-  padding-left: 1rem;
+  padding-right: 1rem;
   font-family: cursive;
   a {
     color: ${({ theme }) => getPalette(theme).text};

@@ -12,9 +12,15 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     background-color: ${({theme}) => getPalette(theme).body};
-    color: ${({theme}) => getPalette(theme).text}
+    color: ${({theme}) => getPalette(theme).text};
+    height: 100vh;
+    width: 100vw;
   }
 
+  #root{
+    height: 100%;
+    width: 100%;
+  }
   `;
 
 export default GlobalStyle;
