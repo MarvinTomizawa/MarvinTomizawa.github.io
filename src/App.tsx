@@ -23,17 +23,6 @@ class App extends React.Component {
     new RouteModel("*", "NotFound", NotFound, false, false),
   ];
 
-  mapRoutes() {
-    return this.routes.map((route, index) => (
-      <Route
-        key={index}
-        path={route.path}
-        exact={route.exact}
-        component={route.component}
-      />
-    ));
-  }
-
   render() {
     return (
       <ThemeProvider theme={{ ...colorPalette }}>
@@ -44,6 +33,17 @@ class App extends React.Component {
         </Router>
       </ThemeProvider>
     );
+  }
+
+  mapRoutes() {
+    return this.routes.map((route, index) => (
+      <Route
+        key={index}
+        path={route.path}
+        exact={route.exact}
+        component={route.component}
+      />
+    ));
   }
 }
 
