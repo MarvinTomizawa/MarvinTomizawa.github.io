@@ -5,7 +5,6 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   background-color: ${({ theme }) => getPalette(theme).primary};
   display: flex;
-  height:18%;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
