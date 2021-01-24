@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { getPalette } from "./Variables"
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -8,6 +9,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     text-decoration: none;
   }
+  
+  body {
+    background-color: ${({theme}) => getPalette(theme).body};
+    color: ${({theme}) => getPalette(theme).text}
+  }
+
   `;
 
 export default GlobalStyle;
