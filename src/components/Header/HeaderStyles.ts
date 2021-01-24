@@ -24,6 +24,7 @@ export const HeaderWrapper = styled.header`
 export const HeaderTitle = styled.h1`
   font-family: Pacifico, cursive;
   color: ${({ theme }) => getPalette(theme).text};
+  margin-block-start: 0px;
 `;
 
 export const LinkList = styled.ul`
@@ -39,11 +40,9 @@ export const LinkList = styled.ul`
 `;
 
 export const LinkListItem = styled.li`
-  padding-right: 1rem;
+  padding: 0 .5rem;
+
   a {
     color: ${({ theme }) => getPalette(theme).text};
-    &:hover {
-      border-bottom: 2px solid ${({ theme }) => getPalette(theme).primary};
-    }
   }
 `;
