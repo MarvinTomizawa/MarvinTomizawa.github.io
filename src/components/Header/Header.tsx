@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "styled-components";
 import RouteModel from "../../models/RouteModel";
-import { UnderHoverEffect } from "../Ui/UnderHoverEffects";
+import UnderHoverEffect from "../Ui/UnderHoverEffects";
 import { IColorPalette } from "../Ui/Variables";
 
 import {
