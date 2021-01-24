@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { getPalette } from "./Variables"
+import { getPalette } from "./Variables";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -11,8 +11,26 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-color: ${({theme}) => getPalette(theme).body};
-    color: ${({theme}) => getPalette(theme).text}
+    background-color: ${({ theme }) => getPalette(theme).body};
+    color: ${({ theme }) => getPalette(theme).text};
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root{
+    height: 100%;
+    width: 100%;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
   }
 
   `;
