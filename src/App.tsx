@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Ui/GlobalStyle";
 import { colorPalette } from "./components/Ui/Variables";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Sobre from "./components/Sobre/Sobre";
 import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";

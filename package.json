@@ -2,7 +2,7 @@
   "name": "curriculo-marvin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://marvintomizawa.github.io/curriculo",
+  "homepage": "https://marvintomizawa.github.io",
   "dependencies": {
     "cra-template-typescript": "1.1.1",
     "gh-pages": "^3.1.0",
