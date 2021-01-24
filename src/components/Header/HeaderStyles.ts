@@ -40,7 +40,6 @@ export const LinkList = styled.ul`
 
 export const LinkListItem = styled.li`
   padding-right: 1rem;
-  font-family: cursive;
   a {
     color: ${({ theme }) => getPalette(theme).text};
     &:hover {
