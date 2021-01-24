@@ -8,10 +8,10 @@ import Home from "./components/Content/Home/Home";
 import NotFound from "./components/Content/NotFound/NotFound";
 import Header from "./components/Header/Header";
 import RouteModel from "./models/RouteModel";
-
-const Contato = () => <h1>Contato</h1>;
-const Experiencia = () => <h1>Experiencia</h1>;
-const Habilidades = () => <h1>Habilidades</h1>;
+import Footer from "./components/Footer/Footer";
+import Habilidades from "./components/Content/Habilidades/Habilidades";
+import Experiencia from "./components/Content/Experiencia/Experiencia";
+import Contato from "./components/Content/Contato/Contato";
 
 class App extends React.Component {
   private routes: RouteModel[] = [
@@ -27,10 +27,13 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={{ ...colorPalette }}>
         <GlobalStyle></GlobalStyle>
+
         <Router>
-          <Header routes={this.routes}></Header>
+          <Header routes={this.routes} />
           <Switch>{this.mapRoutes()}</Switch>
+          <Footer />
         </Router>
+
       </ThemeProvider>
     );
   }

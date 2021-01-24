@@ -1,33 +1,47 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "styled-components";
 import RouteModel from "../../models/RouteModel";
-import { HeaderTitle, HeaderWrapper, LinkList, LinkListItem } from "./HeaderStyles";
+import UnderHoverEffect from "../Ui/UnderHoverEffects";
+import { IColorPalette } from "../Ui/Variables";
+
+import {
+  HeaderTitle,
+  HeaderWrapper,
+  LinkList,
+  LinkListItem,
+} from "./HeaderStyles";
 
 interface HeaderProps {
   routes: RouteModel[];
 }
 
-class Header extends React.PureComponent<HeaderProps> {
-  render() {
-    return (
-      <HeaderWrapper>
-        <HeaderTitle>Marvin Tomizawa</HeaderTitle>
-        <nav>
-          <LinkList>{this.mapLinks()}</LinkList>
-        </nav>
-      </HeaderWrapper>
-    );
-  }
-  
-  mapLinks() {
-    return this.props.routes
+const Header: React.FunctionComponent<HeaderProps> = (props) => {
+  const theme: IColorPalette = React.useContext<IColorPalette>(ThemeContext);
+
+  const mapLinks = () => {
+    return props.routes
       .filter((route) => route.show)
       .map((route, index) => (
         <LinkListItem key={index}>
-          <Link to={route.path}>{route.description}</Link>
+          <UnderHoverEffect
+            primaryColor={theme.primaryAccent}
+            secondaryColor={theme.secondary}
+          >
+            <Link to={route.path}>{route.description}</Link>
+          </UnderHoverEffect>
         </LinkListItem>
       ));
-  }
-}
+  };
+
+  return (
+    <HeaderWrapper>
+      <HeaderTitle>Marvin Tomizawa</HeaderTitle>
+      <nav>
+        <LinkList>{mapLinks()}</LinkList>
+      </nav>
+    </HeaderWrapper>
+  );
+};
 
 export default Header;
