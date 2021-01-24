@@ -13,13 +13,17 @@ export const HeaderWrapper = styled.header`
   
   @media (min-width: ${({ theme }) => getPalette(theme).mobileBreakingPoint}) {
     flex-direction: row;
-    flex-wrap: nowrap;
     height:12%;
     nav {
       min-width: 400px;  
       width: 40%;
     }
   }
+`;
+
+export const HeaderTitle = styled.h1`
+  font-family: Pacifico, cursive;
+  color: ${({ theme }) => getPalette(theme).text};
 `;
 
 export const LinkList = styled.ul`
@@ -43,9 +47,4 @@ export const LinkListItem = styled.li`
       border-bottom: 2px solid ${({ theme }) => getPalette(theme).primary};
     }
   }
-`;
-
-export const HeaderTitle = styled.h1`
-  font-family: Pacifico, cursive;
-  color: ${({ theme }) => getPalette(theme).text};
 `;
