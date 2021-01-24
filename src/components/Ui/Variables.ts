@@ -1,19 +1,21 @@
-export const colorPalette = {
-  primaryColor: "#60DAFB",
-  primaryColorAccent: "#368DBC",
-  secondaryColor: "#8DC1E4",
-  secondaryColorAccent: "#90A8BB",
+export const colorPalette: IColorPalette = {
+  primary: "#368DBC",
+  primaryAccent: "#60DAFB",
+  secondary: "#8DC1E4",
+  secondaryAccent: "#90A8BB",
   text: "white",
   body: "#1F232A",
+  mobileBreakingPoint: "750px"
 };
 
 export const getPalette = (theme: any) => ({ ...theme } as IColorPalette);
 
 export interface IColorPalette {
-  primaryColor: string;
-  primaryColorAccent: string;
-  secondaryColor: string;
-  secondaryColorAccent: string;
+  primary: string;
+  primaryAccent: string;
+  secondary: string;
+  secondaryAccent: string;
   text: string;
   body: string;
+  mobileBreakingPoint: string;
 }
