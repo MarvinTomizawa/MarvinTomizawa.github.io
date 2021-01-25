@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "styled-components";
 import RouteModel from "../../models/RouteModel";
 import UnderHoverEffect from "../Ui/UnderHoverEffects";
@@ -19,7 +19,9 @@ interface HeaderProps {
 const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const theme: IColorPalette = React.useContext<IColorPalette>(ThemeContext);
 
-  const mapLinks = () => {
+  const pathname =  useLocation().pathname;
+
+  const mapLinks = (actualPath: string) => {
     return props.routes
       .filter((route) => route.show)
       .map((route, index) => (
@@ -27,6 +29,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
           <UnderHoverEffect
             primaryColor={theme.primaryAccent}
             secondaryColor={theme.secondary}
+            keepActive={route.path === actualPath}
           >
             <Link to={route.path}>{route.description}</Link>
           </UnderHoverEffect>
@@ -38,7 +41,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
     <HeaderWrapper>
       <HeaderTitle>Marvin Tomizawa</HeaderTitle>
       <nav>
-        <LinkList>{mapLinks()}</LinkList>
+        <LinkList>{mapLinks(pathname)}</LinkList>
       </nav>
     </HeaderWrapper>
   );
