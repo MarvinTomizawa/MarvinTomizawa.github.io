@@ -5,10 +5,10 @@ import EnTranslation from "./translations/en.json";
 
 const resources = {
   en: {
-    translation: PtTranslation,
+    translation: EnTranslation,
   },
   pt: {
-    translation: EnTranslation,
+    translation: PtTranslation,
   },
 };
 

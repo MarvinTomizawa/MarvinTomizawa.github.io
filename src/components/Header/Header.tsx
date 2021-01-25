@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "styled-components";
 import RouteModel from "../../models/Router/RouteModel";
@@ -18,7 +19,7 @@ interface HeaderProps {
 
 const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const theme: IColorPalette = React.useContext<IColorPalette>(ThemeContext);
-
+  const {t} = useTranslation();
   const pathname = useLocation().pathname;
 
   const mapLinks = (actualPath: string) => {
@@ -39,7 +40,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
 
   return (
     <HeaderWrapper>
-      <HeaderTitle>Marvin Tomizawa</HeaderTitle>
+      <HeaderTitle>{t("header.logo.name")}</HeaderTitle>
       <nav>
         <LinkList>{mapLinks(pathname)}</LinkList>
       </nav>

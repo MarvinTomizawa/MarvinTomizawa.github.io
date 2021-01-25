@@ -12,33 +12,24 @@ import Footer from "./components/Footer/Footer";
 import Skills from "./components/Content/Skills/Skills";
 import Experience from "./components/Content/Experience/Experience";
 import Contact from "./components/Content/Contact/Contact";
+import { useTranslation } from "react-i18next";
 
-class App extends React.Component {
-  private routes: RouteModel[] = [
-    new RouteModel("/", "Home", Home, true),
-    new RouteModel("/sobre", "Sobre", About),
-    new RouteModel("/experiencia", "Experiencia", Experience),
-    new RouteModel("/habilidades", "Habildades", Skills),
-    new RouteModel("/contato", "Contato", Contact),
-    new RouteModel("*", "NotFound", NotFound, false, false),
+const App: React.FunctionComponent = () => {
+  const { t, i18n } = useTranslation();
+
+  i18n.changeLanguage("pt");
+
+  const routes: RouteModel[] = [
+    new RouteModel("/", t("header.link.home"), Home, true),
+    new RouteModel("/about", t("header.link.about"), About),
+    new RouteModel("/experience", t("header.link.experience"), Experience),
+    new RouteModel("/skills", t("header.link.skills"), Skills),
+    new RouteModel("/contact", t("header.link.contact"), Contact),
+    new RouteModel("*", t("header.link.notFound"), NotFound, false, false),
   ];
 
-  render() {
-    return (
-      <ThemeProvider theme={{ ...colorPalette }}>
-        <GlobalStyle></GlobalStyle>
-
-        <Router>
-          <Header routes={this.routes} />
-          <Switch>{this.mapRoutes()}</Switch>
-          <Footer />
-        </Router>
-      </ThemeProvider>
-    );
-  }
-
-  mapRoutes() {
-    return this.routes.map((route, index) => (
+  const mapRoutes = () => {
+    return routes.map((route, index) => (
       <Route
         key={index}
         path={route.path}
@@ -46,7 +37,19 @@ class App extends React.Component {
         component={route.component}
       />
     ));
-  }
-}
+  };
+
+  return (
+    <ThemeProvider theme={{ ...colorPalette }}>
+      <GlobalStyle></GlobalStyle>
+
+      <Router>
+        <Header routes={routes} />
+        <Switch>{mapRoutes()}</Switch>
+        <Footer />
+      </Router>
+    </ThemeProvider>
+  );
+};
 
 export default App;
