@@ -6,9 +6,7 @@ import {
   GithubIcon,
 } from "./FooterStyles";
 
-export interface FooterProps {}
-
-const Footer: React.FunctionComponent<FooterProps> = () => {
+const Footer: React.FunctionComponent = () => {
   return (
     <FooterWrapper>
       <nav>
