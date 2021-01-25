@@ -1,17 +1,15 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { ContentWrapper } from "../ContentStyle";
-export interface NotFoundProps {}
 
-export interface NotFoundState {}
-
-class NotFound extends React.Component<NotFoundProps, NotFoundState> {
-  render() {
-    return (
-      <ContentWrapper>
-        <h1>NotFound</h1>
-      </ContentWrapper>
-    );
-  }
-}
+const NotFound: React.FunctionComponent = () => {
+  const { t } = useTranslation();
+  
+  return (
+    <ContentWrapper>
+      <h1>{t("content.notFound.title")}</h1>
+    </ContentWrapper>
+  );
+};
 
 export default NotFound;

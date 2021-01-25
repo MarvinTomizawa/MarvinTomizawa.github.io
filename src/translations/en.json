@@ -1,0 +1,16 @@
+{
+  "header.logo.name":"Massaru Tomizawa",
+  "header.link.home": "Home",
+  "header.link.about": "About",
+  "header.link.experience": "Experiences",
+  "header.link.skills": "Skills",
+  "header.link.contact": "Contact",
+  "header.link.notFound": "Not found",
+
+  "content.home.title":"Home Page",
+  "content.about.title":"About Page",
+  "content.experience.title":"Experience Page",
+  "content.skills.title":"Skills Page",
+  "content.contact.title":"Contact Page",
+  "content.notFound.title":"404 Not Found"
+}

@@ -18,7 +18,7 @@ const UnderHoverEffectComponent = styled.span.attrs<
   );
   width: 100%;
   height: ${(props) => props.size};
-  transform: scaleX(0);
+  transform: scaleX(${(props) => (props.keepActive ? "1" : "0")});
   transition: ${(props) => props.transition};
 `;
 
@@ -35,22 +35,22 @@ interface UnderHoverEffectProps {
   secondaryColor?: string;
   size?: string;
   transition?: string;
+  keepActive?: boolean;
 }
 
-class UnderHoverEffect extends React.Component<UnderHoverEffectProps> {
-  render() {
-    return (
-      <UnderHoverEffectWrapper>
-        {this.props.children}
-        <UnderHoverEffectComponent
-          primaryColor={this.props.primaryColor}
-          secondaryColor={this.props.secondaryColor}
-          size={this.props.size}
-          transition={this.props.transition}
-        />
-      </UnderHoverEffectWrapper>
-    );
-  }
-}
+const UnderHoverEffect: React.SFC<UnderHoverEffectProps> = (props) => {
+  return (
+    <UnderHoverEffectWrapper>
+      {props.children}
+      <UnderHoverEffectComponent
+        primaryColor={props.primaryColor}
+        secondaryColor={props.secondaryColor}
+        size={props.size}
+        transition={props.transition}
+        keepActive={props.keepActive}
+      />
+    </UnderHoverEffectWrapper>
+  );
+};
 
 export default UnderHoverEffect;
