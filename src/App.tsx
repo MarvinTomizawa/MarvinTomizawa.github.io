@@ -3,23 +3,23 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Ui/GlobalStyle";
 import { colorPalette } from "./components/Ui/Variables";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import Sobre from "./components/Content/Sobre/Sobre";
+import About from "./components/Content/About/About";
 import Home from "./components/Content/Home/Home";
 import NotFound from "./components/Content/NotFound/NotFound";
 import Header from "./components/Header/Header";
-import RouteModel from "./models/RouteModel";
+import RouteModel from "./models/Router/RouteModel";
 import Footer from "./components/Footer/Footer";
-import Habilidades from "./components/Content/Habilidades/Habilidades";
-import Experiencia from "./components/Content/Experiencia/Experiencia";
-import Contato from "./components/Content/Contato/Contato";
+import Skills from "./components/Content/Skills/Skills";
+import Experience from "./components/Content/Experience/Experience";
+import Contact from "./components/Content/Contact/Contact";
 
 class App extends React.Component {
   private routes: RouteModel[] = [
     new RouteModel("/", "Home", Home, true),
-    new RouteModel("/sobre", "Sobre", Sobre),
-    new RouteModel("/experiencia", "Experiencia", Experiencia),
-    new RouteModel("/habilidades", "Habildades", Habilidades),
-    new RouteModel("/contato", "Contato", Contato),
+    new RouteModel("/sobre", "Sobre", About),
+    new RouteModel("/experiencia", "Experiencia", Experience),
+    new RouteModel("/habilidades", "Habildades", Skills),
+    new RouteModel("/contato", "Contato", Contact),
     new RouteModel("*", "NotFound", NotFound, false, false),
   ];
 
@@ -33,7 +33,6 @@ class App extends React.Component {
           <Switch>{this.mapRoutes()}</Switch>
           <Footer />
         </Router>
-
       </ThemeProvider>
     );
   }

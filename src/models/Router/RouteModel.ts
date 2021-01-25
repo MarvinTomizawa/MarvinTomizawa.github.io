@@ -1,5 +1,11 @@
 export default class RouteModel {
-  constructor(path: string, description: string, component: any, exact:boolean = false, show: boolean = true) {
+  constructor(
+    path: string,
+    description: string,
+    component: any,
+    exact: boolean = false,
+    show: boolean = true
+  ) {
     this.path = path;
     this.description = description;
     this.component = component;

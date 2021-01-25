@@ -1,12 +1,13 @@
 import * as React from "react";
 import { ContentWrapper } from "../ContentStyle";
 
-const Sobre: React.FunctionComponent = () => {
+const Contact: React.FunctionComponent = () => {
   return (
     <ContentWrapper>
-      <h1>Sobre</h1>
+      <h1>Contato</h1>
     </ContentWrapper>
   );
 };
 
-export default Sobre;
+
+export default Contact;

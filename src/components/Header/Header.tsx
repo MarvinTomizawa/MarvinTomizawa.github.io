@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "styled-components";
-import RouteModel from "../../models/RouteModel";
+import RouteModel from "../../models/Router/RouteModel";
 import UnderHoverEffect from "../Ui/UnderHoverEffects";
 import { IColorPalette } from "../Ui/Variables";
 
@@ -19,7 +19,7 @@ interface HeaderProps {
 const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const theme: IColorPalette = React.useContext<IColorPalette>(ThemeContext);
 
-  const pathname =  useLocation().pathname;
+  const pathname = useLocation().pathname;
 
   const mapLinks = (actualPath: string) => {
     return props.routes

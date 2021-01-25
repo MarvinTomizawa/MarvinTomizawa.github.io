@@ -1,12 +1,12 @@
 import * as React from "react";
 import { ContentWrapper } from "../ContentStyle";
 
-const Habilidades: React.FunctionComponent = () => {
+const About: React.FunctionComponent = () => {
   return (
     <ContentWrapper>
-      <h1>Habilidades</h1>
+      <h1>Sobre</h1>
     </ContentWrapper>
   );
 };
 
-export default Habilidades;
+export default About;
