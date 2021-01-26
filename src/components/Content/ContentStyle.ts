@@ -5,6 +5,6 @@ export const ContentWrapper = styled.main`
     padding: 1rem;
     width: 100%;
     @media(min-width: ${({theme}) => getPalette(theme).mobileBreakingPoint} ){
-        height: 83%;
+        height: 85%;
     }
 `;
