@@ -7,6 +7,7 @@ const StyledSelect = styled.select`
   border: none;
   border-radius: 10px;
   padding-left: 0.3rem;
+  font-size: 1rem;
 `;
 
 export interface LanguagePickerProps {

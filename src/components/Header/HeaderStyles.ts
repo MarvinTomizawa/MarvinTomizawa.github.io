@@ -66,12 +66,12 @@ export const HeaderLanguagePicker = styled(LanguagePicker)`
   position: absolute;
   right: 0.8rem;
   top: 0.8rem;
-  margin-right: 1rem;
   align-self: center;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     position: inherit;
     flex-basis: content;
+    margin-right: 1rem;
     margin-top: 5px;
   }
 `;
