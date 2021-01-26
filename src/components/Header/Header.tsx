@@ -7,6 +7,7 @@ import UnderHoverEffect from "../Ui/UnderHoverEffects";
 import { IColorPalette } from "../Ui/Variables";
 
 import {
+  HeaderLanguagePicker,
   HeaderTitle,
   HeaderWrapper,
   LinkList,
@@ -19,7 +20,7 @@ interface HeaderProps {
 
 const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const theme: IColorPalette = React.useContext<IColorPalette>(ThemeContext);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const pathname = useLocation().pathname;
 
   const mapLinks = (actualPath: string) => {
@@ -44,6 +45,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
       <nav>
         <LinkList>{mapLinks(pathname)}</LinkList>
       </nav>
+      <HeaderLanguagePicker></HeaderLanguagePicker>
     </HeaderWrapper>
   );
 };

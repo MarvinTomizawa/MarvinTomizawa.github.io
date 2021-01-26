@@ -15,10 +15,7 @@ import Contact from "./components/Content/Contact/Contact";
 import { useTranslation } from "react-i18next";
 
 const App: React.FunctionComponent = () => {
-  const { t, i18n } = useTranslation();
-
-  i18n.changeLanguage("pt");
-
+  const { t } = useTranslation();
   const routes: RouteModel[] = [
     new RouteModel("/", t("header.link.home"), Home, true),
     new RouteModel("/about", t("header.link.about"), About),

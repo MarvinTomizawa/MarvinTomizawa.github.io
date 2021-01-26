@@ -5,7 +5,8 @@ export const colorPalette: IColorPalette = {
   secondaryAccent: "#90A8BB",
   text: "white",
   body: "#1F232A",
-  mobileBreakingPoint: "750px"
+  mobileBreakingPoint: "800px",
+  mobileBreakingPointNumber: 800
 };
 
 export const getPalette = (theme: any) => ({ ...theme } as IColorPalette);
@@ -18,4 +19,5 @@ export interface IColorPalette {
   text: string;
   body: string;
   mobileBreakingPoint: string;
+  mobileBreakingPointNumber: number;
 }
