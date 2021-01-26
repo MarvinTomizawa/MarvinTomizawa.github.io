@@ -5,7 +5,10 @@ export const FooterWrapper = styled.footer`
     position: absolute;
     width: 100%;
     bottom: 0;
-    background-color: ${({theme}) => getPalette(theme).secondary};
+    background-image: linear-gradient(180deg,
+    ${({ theme }) => getPalette(theme).primary} 5%,
+    ${({ theme }) => getPalette(theme).primaryDark} 90%
+  );
     padding: .5rem;
 `;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Ui/GlobalStyle";
-import { colorPalette } from "./components/Ui/Variables";
+import { darkColorPalette } from "./components/Ui/Variables";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./components/Content/About/About";
 import Home from "./components/Content/Home/Home";
@@ -37,7 +37,7 @@ const App: React.FunctionComponent = () => {
   };
 
   return (
-    <ThemeProvider theme={{ ...colorPalette }}>
+    <ThemeProvider theme={{ ...darkColorPalette }}>
       <GlobalStyle></GlobalStyle>
 
       <Router>

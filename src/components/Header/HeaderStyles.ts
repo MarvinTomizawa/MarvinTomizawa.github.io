@@ -15,7 +15,11 @@ export const HeaderLanguagePicker = styled(LanguagePicker)`
 
 export const HeaderWrapper = styled.header`
   align-items: center;
-  background-color: ${({ theme }) => getPalette(theme).primary};
+  background-image: linear-gradient(180deg,
+    ${({ theme }) => getPalette(theme).primaryDark},
+    ${({ theme }) => getPalette(theme).primary} 50%
+  );
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;

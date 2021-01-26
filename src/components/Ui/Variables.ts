@@ -1,21 +1,49 @@
-export const colorPalette: IColorPalette = {
-  primary: "#368DBC",
-  primaryAccent: "#60DAFB",
-  secondary: "#8DC1E4",
-  secondaryAccent: "#90A8BB",
+const mobileBreakingPoint = 800;
+
+export const darkColorPalette: IColorPalette = {
+  primary: "#1976d2",
+  primaryDark: "#115293",
+  primaryLight: "#4791db",
+
+  secondary: "#e64a19",
+  secondaryDark: "#a13311",
+  secondaryLight: "#eb6e47",
+  
   text: "white",
   body: "#1F232A",
-  mobileBreakingPoint: "800px",
-  mobileBreakingPointNumber: 800
+  inside: "",
+
+  mobileBreakingPoint: `${mobileBreakingPoint}px`,
+  mobileBreakingPointNumber: mobileBreakingPoint
+};
+
+export const lightColorPalette: IColorPalette = {
+  primary: "#1976d2",
+  primaryDark: "#115293",
+  primaryLight: "#4791db",
+
+  secondary: "#e64a19",
+  secondaryDark: "#a13311",
+  secondaryLight: "#eb6e47",
+  
+  text: "white",
+  body: "#1F232A",
+  inside: "",
+  
+  mobileBreakingPoint: `${mobileBreakingPoint}px`,
+  mobileBreakingPointNumber: mobileBreakingPoint
 };
 
 export const getPalette = (theme: any) => ({ ...theme } as IColorPalette);
 
 export interface IColorPalette {
   primary: string;
-  primaryAccent: string;
+  primaryDark: string;
+  primaryLight: string;
   secondary: string;
-  secondaryAccent: string;
+  secondaryDark: string;
+  secondaryLight: string;
+  inside: string;
   text: string;
   body: string;
   mobileBreakingPoint: string;

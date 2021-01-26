@@ -29,8 +29,8 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
       .map((route, index) => (
         <LinkListItem key={index}>
           <UnderHoverEffect
-            primaryColor={theme.primaryAccent}
-            secondaryColor={theme.secondary}
+            primaryColor={theme.primaryDark}
+            secondaryColor={theme.secondaryLight}
             keepActive={route.path === actualPath}
           >
             <Link to={route.path}>{route.description}</Link>

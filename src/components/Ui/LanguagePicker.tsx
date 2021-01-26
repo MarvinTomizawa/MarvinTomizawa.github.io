@@ -24,13 +24,20 @@ class LanguagePicker extends React.Component<
   LanguagePickerProps,
   LanguagePickerState
 > {
+  handleResizeRef:any;
+
   constructor(props: LanguagePickerProps) {
     super(props);
     this.state = { language: "en", windowWidth: window.innerWidth };
+    this.handleResizeRef = this.handleResize.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.handleResize.bind(this));
+    window.addEventListener("resize", this.handleResizeRef);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResizeRef);
   }
 
   render() {
