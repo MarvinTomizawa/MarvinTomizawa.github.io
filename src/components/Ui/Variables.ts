@@ -1,6 +1,6 @@
 const mobileBreakingPoint = 800;
 
-export const darkColorPalette: IColorPalette = {
+export const darkColorPalette: ICustomTheme = {
   primary: "#1976d2",
   primaryDark: "#115293",
   primaryLight: "#4791db",
@@ -17,10 +17,10 @@ export const darkColorPalette: IColorPalette = {
   mobileBreakingPointNumber: mobileBreakingPoint
 };
 
-export const lightColorPalette: IColorPalette = {
-  primary: "#1976d2",
-  primaryDark: "#115293",
-  primaryLight: "#4791db",
+export const lightColorPalette: ICustomTheme = {
+  primary: "#e64a19",
+  primaryDark: "#e64a19",
+  primaryLight: "#e64a19",
 
   secondary: "#e64a19",
   secondaryDark: "#a13311",
@@ -34,9 +34,9 @@ export const lightColorPalette: IColorPalette = {
   mobileBreakingPointNumber: mobileBreakingPoint
 };
 
-export const getPalette = (theme: any) => ({ ...theme } as IColorPalette);
+export const getTheme = (theme: any) => ({ ...theme } as ICustomTheme);
 
-export interface IColorPalette {
+export interface ICustomTheme {
   primary: string;
   primaryDark: string;
   primaryLight: string;

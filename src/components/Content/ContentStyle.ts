@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { getPalette } from '../Ui/Variables';
+import { getTheme } from '../Ui/Variables';
 
 export const ContentWrapper = styled.main`
     padding: 1rem;
     width: 100%;
-    @media(min-width: ${({theme}) => getPalette(theme).mobileBreakingPoint} ){
+    @media(min-width: ${({theme}) => getTheme(theme).mobileBreakingPoint} ){
         height: 85%;
     }
 `;

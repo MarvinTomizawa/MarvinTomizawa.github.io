@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Ui/GlobalStyle";
-import { darkColorPalette } from "./components/Ui/Variables";
+import { darkColorPalette, lightColorPalette } from "./components/Ui/Variables";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./components/Content/About/About";
 import Home from "./components/Content/Home/Home";
@@ -13,9 +13,11 @@ import Skills from "./components/Content/Skills/Skills";
 import Experience from "./components/Content/Experience/Experience";
 import Contact from "./components/Content/Contact/Contact";
 import { useTranslation } from "react-i18next";
+import { useDarkTheme } from "./components/Hooks/useDarkMode";
 
 const App: React.FunctionComponent = () => {
   const { t } = useTranslation();
+
   const routes: RouteModel[] = [
     new RouteModel("/", t("header.link.home"), Home, true),
     new RouteModel("/about", t("header.link.about"), About),
@@ -36,12 +38,15 @@ const App: React.FunctionComponent = () => {
     ));
   };
 
+  const [isDarkTheme, toggleTheme] = useDarkTheme();
+  const theme = isDarkTheme ? {...darkColorPalette} : {...lightColorPalette}
+
   return (
-    <ThemeProvider theme={{ ...darkColorPalette }}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle></GlobalStyle>
 
       <Router>
-        <Header routes={routes} />
+        <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} routes={routes} />
         <Switch>{mapRoutes()}</Switch>
         <Footer />
       </Router>

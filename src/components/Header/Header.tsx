@@ -1,13 +1,16 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "react-router-dom";
-import { ThemeContext } from "styled-components";
+import { withTranslation } from "react-i18next";
+import { Link, withRouter } from "react-router-dom";
+import { withTheme } from "styled-components";
 import RouteModel from "../../models/Router/RouteModel";
-import UnderHoverEffect from "../Ui/UnderHoverEffects";
-import { IColorPalette } from "../Ui/Variables";
+import { withMobile } from "../Hooks/useMobile";
+import UnderHoverEffect from "../Ui/common/UnderHoverEffects";
+import { ICustomTheme } from "../Ui/Variables";
 
 import {
+  HeaderConfigButtons,
   HeaderLanguagePicker,
+  HeaderThemeChanger,
   HeaderTitle,
   HeaderWrapper,
   LinkList,
@@ -16,38 +19,54 @@ import {
 
 interface HeaderProps {
   routes: RouteModel[];
+  location?: any;
+  t: Function;
+  i18n?: any;
+  className?: string;
+  theme?: ICustomTheme;
+  isMobile?: boolean;
+  toggleTheme: any;
+  isDarkTheme: boolean;
 }
 
-const Header: React.FunctionComponent<HeaderProps> = (props) => {
-  const theme: IColorPalette = React.useContext<IColorPalette>(ThemeContext);
-  const { t } = useTranslation();
-  const pathname = useLocation().pathname;
+interface HeaderState {
+  pathName: string;
+}
 
-  const mapLinks = (actualPath: string) => {
-    return props.routes
+class Header extends React.Component<HeaderProps, HeaderState> {
+  render() {
+    return (
+      <HeaderWrapper>
+        <HeaderTitle>{this.props.t("header.logo.name")}</HeaderTitle>
+        <nav>
+          <LinkList>{this.mapLinks(this.props.location.pathname)}</LinkList>
+        </nav>
+        <HeaderConfigButtons>
+          <HeaderLanguagePicker showOnlyIcons={this.props.isMobile || false} />
+          <HeaderThemeChanger
+            isDarkTheme={this.props.isDarkTheme}
+            toggleTheme={this.props.toggleTheme}
+          />
+        </HeaderConfigButtons>
+      </HeaderWrapper>
+    );
+  }
+
+  mapLinks(actualPath: string) {
+    return this.props.routes
       .filter((route) => route.show)
       .map((route, index) => (
         <LinkListItem key={index}>
           <UnderHoverEffect
-            primaryColor={theme.primaryDark}
-            secondaryColor={theme.secondaryLight}
+            primaryColor={this.props.theme?.primaryDark}
+            secondaryColor={this.props.theme?.secondaryLight}
             keepActive={route.path === actualPath}
           >
             <Link to={route.path}>{route.description}</Link>
           </UnderHoverEffect>
         </LinkListItem>
       ));
-  };
+  }
+}
 
-  return (
-    <HeaderWrapper>
-      <HeaderTitle>{t("header.logo.name")}</HeaderTitle>
-      <nav>
-        <LinkList>{mapLinks(pathname)}</LinkList>
-      </nav>
-      <HeaderLanguagePicker></HeaderLanguagePicker>
-    </HeaderWrapper>
-  );
-};
-
-export default Header;
+export default withTranslation()(withRouter(withMobile(withTheme(Header))));

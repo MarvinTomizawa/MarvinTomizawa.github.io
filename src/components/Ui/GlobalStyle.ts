@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { getPalette } from "./Variables";
+import { getTheme } from "./Variables";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-color: ${({ theme }) => getPalette(theme).body};
-    color: ${({ theme }) => getPalette(theme).text};
+    background-color: ${({ theme }) => getTheme(theme).body};
+    color: ${({ theme }) => getTheme(theme).text};
     height: 100vh;
     width: 100vw;
     margin: 0;
