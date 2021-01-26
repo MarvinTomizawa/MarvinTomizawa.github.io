@@ -1,4 +1,4 @@
-const mobileBreakingPoint = 800;
+const mobileBreakingPoint = 850;
 
 export const darkColorPalette: ICustomTheme = {
   primary: "#1976d2",

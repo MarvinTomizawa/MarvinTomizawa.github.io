@@ -14,7 +14,6 @@ export const useDarkTheme = () => {
   };
 
   const toggleTheme = () => {
-    console.log(isdarkTheme)
     setThemeInStorage(!isdarkTheme ? "light" : "dark");
     setIsDarkTheme(!isdarkTheme);
   };

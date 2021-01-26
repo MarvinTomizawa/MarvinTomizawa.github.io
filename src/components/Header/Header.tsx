@@ -10,8 +10,8 @@ import { ICustomTheme } from "../Ui/Variables";
 import {
   HeaderConfigButtons,
   HeaderLanguagePicker,
-  HeaderThemeChanger,
   HeaderTitle,
+  HeaderThemeChanger,
   HeaderWrapper,
   LinkList,
   LinkListItem,

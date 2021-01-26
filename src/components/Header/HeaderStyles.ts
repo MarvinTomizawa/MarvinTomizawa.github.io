@@ -67,21 +67,28 @@ export const HeaderLanguagePicker = styled(LanguagePicker)`
   right: 0.8rem;
   top: 0.8rem;
   margin-right: 1rem;
+  align-self: center;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     position: inherit;
     flex-basis: content;
+    margin-top: 5px;
   }
 `;
 
 export const HeaderThemeChanger = styled(ThemeChanger)`
   position: absolute;
-  left: 0.8rem;
-  top: 0.8rem;
-  margin-right: 1rem;
+  left: 0.5rem;
+  top: 0.3rem;
+  height: 2rem;
+  width: 1.5rem;
+
+  &:focus {
+    outline: thin dotted;
+  }
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     position: inherit;
-    flex-basis: content;
+    width: 1.5rem;
   }
 `;
