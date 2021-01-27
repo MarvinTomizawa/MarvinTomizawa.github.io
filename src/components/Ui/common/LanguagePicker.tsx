@@ -1,15 +1,17 @@
 import React from "react";
 import styled, { withTheme } from "styled-components";
 import { withTranslation } from "react-i18next";
-import { getPalette } from "./Variables";
+import { getTheme } from "../Variables";
 
 const StyledSelect = styled.select`
   border: none;
   border-radius: 10px;
   padding-left: 0.3rem;
+  font-size: 1rem;
 `;
 
 export interface LanguagePickerProps {
+  showOnlyIcons: boolean;
   i18n?: any;
   className?: string;
   theme?: any;
@@ -17,20 +19,17 @@ export interface LanguagePickerProps {
 
 export interface LanguagePickerState {
   language: string;
-  windowWidth: number;
 }
 
 class LanguagePicker extends React.Component<
   LanguagePickerProps,
   LanguagePickerState
 > {
+  handleResizeRef:any;
+
   constructor(props: LanguagePickerProps) {
     super(props);
-    this.state = { language: "en", windowWidth: window.innerWidth };
-  }
-
-  componentDidMount() {
-    window.addEventListener("resize", this.handleResize.bind(this));
+    this.state = { language: "en" };
   }
 
   render() {
@@ -42,8 +41,8 @@ class LanguagePicker extends React.Component<
         name="languages"
         id="teste"
       >
-        <option value="pt">{this.isMobile ? "🇧🇷" : "Português"}</option>
-        <option value="en">{this.isMobile ? "🇺🇸" : "English"}</option>
+        <option value="pt">{this.props.showOnlyIcons ? "🇧🇷" : "Português"}</option>
+        <option value="en">{this.props.showOnlyIcons ? "🇺🇸" : "English"}</option>
       </StyledSelect>
     );
   }
@@ -54,14 +53,9 @@ class LanguagePicker extends React.Component<
     this.props.i18n.changeLanguage(languageReceived);
   }
 
-  handleResize() {
-    let state = { ...this.state, windowWidth: window.innerWidth };
-    this.setState(state);
-  }
-
   get isMobile() {
     return (
-      window.innerWidth < getPalette(this.props.theme).mobileBreakingPointNumber
+      window.innerWidth < getTheme(this.props.theme).mobileBreakingPointNumber
     );
   }
 }
