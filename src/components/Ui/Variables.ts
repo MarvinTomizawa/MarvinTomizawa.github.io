@@ -5,30 +5,30 @@ export const darkColorPalette: ICustomTheme = {
   primaryDark: "#115293",
   primaryLight: "#4791db",
 
-  secondary: "#e64a19",
-  secondaryDark: "#a13311",
-  secondaryLight: "#eb6e47",
+  secondary: "#4b0082",
+  secondaryDark: "#34005b",
+  secondaryLight: "#6f339b",
   
   text: "white",
   body: "#1F232A",
-  inside: "",
+  inside: "#4b4f54",
 
   mobileBreakingPoint: `${mobileBreakingPoint}px`,
   mobileBreakingPointNumber: mobileBreakingPoint
 };
 
 export const lightColorPalette: ICustomTheme = {
-  primary: "#e64a19",
-  primaryDark: "#e64a19",
-  primaryLight: "#e64a19",
+  primary: "#CBE4F9",
+  primaryDark: "#B5C6D5",
+  primaryLight: "#DBECFB",
 
-  secondary: "#e64a19",
-  secondaryDark: "#a13311",
-  secondaryLight: "#eb6e47",
+  secondary: "#76b4bd",
+  secondaryDark: "#527d84",
+  secondaryLight: "#91c3ca",
   
-  text: "white",
-  body: "#1F232A",
-  inside: "",
+  text: "#33475b",
+  body: "#FAFCFE",
+  inside: "#f5f8fa",
   
   mobileBreakingPoint: `${mobileBreakingPoint}px`,
   mobileBreakingPointNumber: mobileBreakingPoint

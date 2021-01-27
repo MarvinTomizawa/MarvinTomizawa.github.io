@@ -9,7 +9,7 @@ export const FooterWrapper = styled.footer`
     ${({ theme }) => getTheme(theme).primary} 5%,
     ${({ theme }) => getTheme(theme).primaryDark} 90%
   );
-    padding: .5rem;
+    padding: .3rem;
 `;
 
 export const IconList = styled.ul`
@@ -19,8 +19,8 @@ export const IconList = styled.ul`
 
 export const Icon = styled.div`
     border-radius: 50%;    
-    width: 30px;
-    height: 30px;
+    width: 1.5rem;
+    height: 1.5rem;
     background-image: url("https://image.flaticon.com/icons/png/512/65/65000.png");
     background-position: center;
     background-repeat: no-repeat;

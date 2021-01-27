@@ -32,8 +32,9 @@ export const HeaderWrapper = styled.header`
 
 export const HeaderTitle = styled.h1`
   font-family: Pacifico, cursive;
-  color: ${({ theme }) => getTheme(theme).text};
+  color: white;
   margin-block-start: 0px;
+  text-shadow: 2px 2px black;
 `;
 
 export const LinkList = styled.ul`
