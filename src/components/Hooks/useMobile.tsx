@@ -3,13 +3,13 @@ import { useTheme } from "styled-components";
 import { getTheme } from "../Ui/Variables";
 
 function useMobile() {
-  const [isMobile, setToMobile] = useState(true);
-  const theme = useTheme();
+  const theme = getTheme(useTheme());
+  const [isMobile, setToMobile] = useState(window.innerWidth < theme.mobileBreakingPointNumber);
 
   function handleWidthChange(event: any) {
     
     let changeToMobile =
-      event.target.innerWidth < getTheme(theme).mobileBreakingPointNumber;
+      event.target.innerWidth < theme.mobileBreakingPointNumber;
 
       setToMobile(changeToMobile);
   }
