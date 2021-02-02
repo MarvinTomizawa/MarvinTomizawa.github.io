@@ -2,6 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import PtTranslation from "./translations/pt-br.json";
 import EnTranslation from "./translations/en.json";
+import { ELanguage } from "./models/Router/ELanguage";
 
 const resources = {
   en: {
@@ -14,7 +15,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en",
+  lng: ELanguage.default,
   keySeparator: false,
   interpolation: {
     escapeValue: false,
