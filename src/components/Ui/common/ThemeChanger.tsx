@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import { ReactComponent as LightbulbOn } from "../../../assets/lightbulb-on.svg";
-import { ReactComponent as LightbulbOff } from "../../../assets/lightbulb-off.svg";
+import { ReactComponent as LightbulbOn } from "../../../assets/images/lightbulb-on.svg";
+import { ReactComponent as LightbulbOff } from "../../../assets/images/lightbulb-off.svg";
 
 const Button = styled.button`
   display: flex;
