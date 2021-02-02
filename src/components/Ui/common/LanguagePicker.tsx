@@ -2,6 +2,7 @@ import React from "react";
 import styled, { withTheme } from "styled-components";
 import { withTranslation } from "react-i18next";
 import { getTheme } from "../Variables";
+import { ELanguage } from "../../../models/Router/ELanguage";
 
 const StyledSelect = styled.select`
   border: none;
@@ -25,11 +26,11 @@ class LanguagePicker extends React.Component<
   LanguagePickerProps,
   LanguagePickerState
 > {
-  handleResizeRef:any;
+  handleResizeRef: any;
 
   constructor(props: LanguagePickerProps) {
     super(props);
-    this.state = { language: "en" };
+    this.state = { language: ELanguage.default };
   }
 
   render() {
@@ -39,10 +40,13 @@ class LanguagePicker extends React.Component<
         value={this.state.language}
         onChange={(event) => this.changeLanguage(event)}
         name="languages"
-        id="teste"
       >
-        <option value="pt">{this.props.showOnlyIcons ? "🇧🇷" : "Português"}</option>
-        <option value="en">{this.props.showOnlyIcons ? "🇺🇸" : "English"}</option>
+        <option value={ELanguage.portuguese}>
+          {this.props.showOnlyIcons ? "🇧🇷" : "Português"}
+        </option>
+        <option value={ELanguage.english}>
+          {this.props.showOnlyIcons ? "🇺🇸" : "English"}
+        </option>
       </StyledSelect>
     );
   }

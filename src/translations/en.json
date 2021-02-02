@@ -12,5 +12,7 @@
   "content.experience.title":"Experience Page",
   "content.skills.title":"Skills Page",
   "content.contact.title":"Contact Page",
-  "content.notFound.title":"404 Not Found"
+  "content.notFound.title":"404 Not Found",
+  
+  "curriculum.visualize":"See Curriculum Vitae"
 }
