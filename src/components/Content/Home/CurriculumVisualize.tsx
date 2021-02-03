@@ -19,10 +19,10 @@ const StyledDownload = styled.a`
 
 const StyledDownloadIcon = styled.img`
   width: 10%;
-  margin-right: 0.3rem;
+  margin-right: .3rem;
 `;
 
-const CurriculumDownload: React.FunctionComponent = () => {
+const CurriculumVisualize: React.FunctionComponent = () => {
   const { t, i18n } = useTranslation();
 
   const downloadSrc = () => {
@@ -46,4 +46,4 @@ const CurriculumDownload: React.FunctionComponent = () => {
   );
 };
 
-export default CurriculumDownload;
+export default CurriculumVisualize;
