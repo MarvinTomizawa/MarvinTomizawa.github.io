@@ -31,6 +31,7 @@ const RoundProgress: React.FunctionComponent<RoundProgressProps> = (props) => {
         <RightCircle />
       </RoundProgressCircle>
       <InsideCircle>{props.children}</InsideCircle>
+      <ProgressCircleEffect size={props.size} />
     </RoundProgressWrapper>
   );
 };
@@ -59,7 +60,43 @@ const Circle = styled.div`
   width: 100%;
 `;
 
-const LeftCircle = styled(Circle)``;
+const TopProgressCircle = styled(Circle).attrs<StylizationProps>((props) => ({
+  size: props.size || "3rem",
+}))<StylizationProps>`
+  box-shadow: inset 0rem calc((${(props) => props.size} / 6) * -1)
+    calc((${(props) => props.size} / 10))
+    calc((${(props) => props.size} / 10) * -1) black;
+`;
+
+const BottomProgressCircle = styled(Circle).attrs<StylizationProps>(
+  (props) => ({
+    size: props.size || "3rem",
+  })
+)<StylizationProps>`
+  width: 85%;
+  height: 85%;
+  top: 7.5%;
+  left: 7.5%;
+  box-shadow: inset 0rem calc((${(props) => props.size} / 10))
+      calc((${(props) => props.size} / 10))
+      calc((${(props) => props.size} / 10) * -1) black,
+    inset 0rem calc((${(props) => props.size} / 10) * -1)
+      calc((${(props) => props.size} / 10))
+      calc((${(props) => props.size} / 8) * -1) white;
+`;
+
+const ProgressCircleEffect = ({ size }: { size?: string }) => {
+  return (
+    <div>
+      <TopProgressCircle size={size} />
+      <BottomProgressCircle size={size} />
+    </div>
+  );
+};
+
+const LeftCircle = styled(Circle)`
+  background: blue;
+`;
 const BackgroundCircle = styled(Circle)``;
 const RightCircle = styled(Circle)``;
 
