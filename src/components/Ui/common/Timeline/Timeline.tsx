@@ -7,6 +7,12 @@ import { Icon } from "../Icon";
 interface TimelineProps {
   title: string;
   items: TimelineItemProps[];
+  topColor?: string;
+  timelineColor?: string;
+}
+
+interface TimelineStyleProps {
+  topBackgroundColor?: string;
 }
 
 const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
@@ -17,13 +23,14 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
         title={item.title}
         description={item.description}
         subDescription={item.subDescription}
+        timelineColor={props.timelineColor}
       />
     ));
   };
 
   return (
     <TimelineWrapper>
-      <TimelineTitle>
+      <TimelineTitle topBackgroundColor={props.topColor}>
         <TimelineTitleIcon />
         <h2>{props.title}</h2>
       </TimelineTitle>
@@ -38,14 +45,16 @@ const TimelineWrapper = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
   padding: 1rem;
 
-  @media(min-width: ${(({theme}) => getTheme(theme).mobileBreakingPoint)}){
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     min-width: 23rem;
   }
 `;
 
-const TimelineTitle = styled.span`
+const TimelineTitle = styled.span.attrs<TimelineStyleProps>((props) => ({
+  topBackgroundColor: props.topBackgroundColor || "black",
+}))<TimelineStyleProps>`
   display: flex;
-  border-bottom: solid black 0.2rem;
+  border-bottom: solid ${(props) => props.topBackgroundColor} 0.2rem;
   align-items: center;
 `;
 
