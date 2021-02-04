@@ -36,6 +36,7 @@ export default Timeline;
 
 const TimelineWrapper = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
+  min-width: 23rem;
   padding: 1rem;
 `;
 
