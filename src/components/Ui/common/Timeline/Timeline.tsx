@@ -36,8 +36,11 @@ export default Timeline;
 
 const TimelineWrapper = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
-  min-width: 23rem;
   padding: 1rem;
+
+  @media(min-width: ${(({theme}) => getTheme(theme).mobileBreakingPoint)}){
+    min-width: 23rem;
+  }
 `;
 
 const TimelineTitle = styled.span`
