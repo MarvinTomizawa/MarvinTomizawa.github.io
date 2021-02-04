@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export interface RoundProgressProps {
   backgroundColor?: string;
-  size?: number;
-  progress: number;
+  size?: string;
+  progress?: number;
   progressColor?: string;
   insideColor?: string;
 }
@@ -20,13 +20,13 @@ interface StylizationProps {
 const RoundProgress: React.FunctionComponent<RoundProgressProps> = (props) => {
   return (
     <RoundProgressWrapper
-      progress={75}
-      size="3rem"
-      insideColor="black"
-      backgroundColor=""
+      progress={props.progress}
+      size={props.size}
+      insideColor={props.insideColor}
+      backgroundColor={props.backgroundColor}
     >
       <BackgroundCircle />
-      <RoundProgressCircle progressColor="red">
+      <RoundProgressCircle progressColor={props.progressColor}>
         <LeftCircle />
         <RightCircle />
       </RoundProgressCircle>
@@ -40,7 +40,7 @@ export default RoundProgress;
 const InsideCircle = styled.div`
   align-items: center;
   border-radius: 50%;
-  display:flex;
+  display: flex;
   height: 70%;
   justify-content: center;
   left: 15%;
@@ -61,9 +61,7 @@ const Circle = styled.div`
 
 const LeftCircle = styled(Circle)``;
 const BackgroundCircle = styled(Circle)``;
-const RightCircle = styled(Circle)`
-  transform: rotate(180deg);
-`;
+const RightCircle = styled(Circle)``;
 
 const RoundProgressCircle = styled.div.attrs<StylizationProps>((prop) => ({
   progressColor: prop.progressColor || "blue",
@@ -83,8 +81,8 @@ const RoundProgressCircle = styled.div.attrs<StylizationProps>((prop) => ({
 
 const RoundProgressWrapper = styled.div.attrs<StylizationProps>((prop) => ({
   size: prop.size || "3rem",
-  progress: prop.progress || 0,
-  insideColor: prop.insideColor || "white",
+  progress: prop.progress || 100,
+  insideColor: prop.insideColor || "black",
   backgroundColor: prop.backgroundColor || "white",
 }))<StylizationProps>`
   position: relative;
@@ -92,12 +90,7 @@ const RoundProgressWrapper = styled.div.attrs<StylizationProps>((prop) => ({
   height: ${(prop) => prop.size};
 
   ${RoundProgressCircle} {
-    clip: rect(
-      0,
-      ${(prop) => prop.size},
-      ${(prop) => prop.size},
-      calc(${(prop) => prop.size} / 2)
-    );
+    clip: rect(0, calc(${(prop) => prop.size} / 2), ${(prop) => prop.size}, 0);
 
     ${(prop) =>
       (prop.progress || 0) > 50 && "clip: rect(auto, auto, auto, auto)"};
@@ -109,12 +102,12 @@ const RoundProgressWrapper = styled.div.attrs<StylizationProps>((prop) => ({
 
   ${LeftCircle} {
     clip: rect(0, calc(${(prop) => prop.size} / 2), ${(prop) => prop.size}, 0);
-    transform: rotate(calc(${(props) => props.progress} * 3.6deg));
+    ${(props) => (props.progress || 0) < 50 && "display: none"}
   }
 
   ${RightCircle} {
     clip: rect(0, calc(${(prop) => prop.size} / 2), ${(prop) => prop.size}, 0);
-    ${(props) => (props.progress || 0) < 50 && "display: none"}
+    transform: rotate(calc(180deg - (${(props) => props.progress} * -3.6deg)));
   }
 
   ${InsideCircle} {
