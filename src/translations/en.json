@@ -1,5 +1,5 @@
 {
-  "header.logo.name":"Marvin Tomizawa",
+  "header.logo.name": "Marvin Tomizawa",
   "header.link.home": "Home",
   "header.link.about": "About",
   "header.link.experience": "Experiences",
@@ -7,12 +7,14 @@
   "header.link.contact": "Contact",
   "header.link.notFound": "Not found",
 
-  "content.home.title":"Home Page",
-  "content.about.title":"About Page",
-  "content.experience.title":"Experience Page",
-  "content.skills.title":"Skills Page",
-  "content.contact.title":"Contact Page",
-  "content.notFound.title":"404 Not Found",
-  
-  "curriculum.visualize":"See Curriculum Vitae"
+  "content.home.title": "Home Page",
+  "content.about.title": "About Page",
+  "content.experience.title": "Experience Page",
+  "content.skills.title": "Skills Page",
+  "content.contact.title": "Contact Page",
+  "content.notFound.title": "404 Not Found",
+
+  "curriculum.visualize": "See Curriculum Vitae",
+
+  "education.title": "Education"
 }
