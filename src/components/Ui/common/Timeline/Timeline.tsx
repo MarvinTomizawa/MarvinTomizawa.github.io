@@ -3,12 +3,15 @@ import TimelineItem, { TimelineItemProps } from "./TimelineItem";
 import styled from "styled-components";
 import { getTheme } from "../../Variables";
 import { Icon } from "../Icon";
+import { withMobile } from "../../../Hooks/useMobile";
 
 interface TimelineProps {
   title: string;
   items: TimelineItemProps[];
   topColor?: string;
   timelineColor?: string;
+  isMobile?: boolean;
+  descriptionLenght?: number;
 }
 
 interface TimelineStyleProps {
@@ -16,6 +19,10 @@ interface TimelineStyleProps {
 }
 
 const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
+  const isMobile = props.isMobile || false;
+  const lenght = props.descriptionLenght || 100;
+  const descriptionLenght = lenght / (isMobile ? 2 : 1);
+
   const mapItems = () => {
     return props.items.map((item, index) => (
       <TimelineItem
@@ -24,6 +31,7 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
         description={item.description}
         subDescription={item.subDescription}
         timelineColor={props.timelineColor}
+        descriptionLegth={descriptionLenght}
       />
     ));
   };
@@ -39,7 +47,7 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
   );
 };
 
-export default Timeline;
+export default withMobile(Timeline);
 
 const TimelineWrapper = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};

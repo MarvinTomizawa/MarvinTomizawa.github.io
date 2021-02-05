@@ -6,6 +6,7 @@ export interface TimelineItemProps {
   description: string;
   subDescription: string;
   timelineColor?: string;
+  descriptionLegth?: number;
 }
 
 interface TimelineItemStyleProps {
@@ -13,12 +14,34 @@ interface TimelineItemStyleProps {
 }
 
 const TimelineItem: React.FunctionComponent<TimelineItemProps> = (props) => {
+  const descriptionLenght = (props.descriptionLegth || 100);
+  
+  const getDetails = () => {
+    if (props.description.length <= descriptionLenght) {
+      return <p>{props.description}</p>;
+    }
+
+    const summaryWords = props.description.substring(0, descriptionLenght).split(" ");
+    const summaryContent = summaryWords
+      .splice(0, summaryWords.length - 1)
+      .join(" ");
+
+    return (
+      <Details>
+        <summary>
+          <DescriptionShow>{summaryContent}</DescriptionShow>
+          <DescriptionHidden>{props.description}</DescriptionHidden>
+        </summary>
+      </Details>
+    );
+  };
+
   return (
     <TimelineItemWrapper>
       <TimelineItemContent timelineColor={props.timelineColor}>
         <TimelineItemIcon timelineColor={props.timelineColor} />
         <h3>{props.title}</h3>
-        <p>{props.description}</p>
+        {getDetails()}
         <TimelineSubDescription>{props.subDescription}</TimelineSubDescription>
       </TimelineItemContent>
     </TimelineItemWrapper>
@@ -26,6 +49,39 @@ const TimelineItem: React.FunctionComponent<TimelineItemProps> = (props) => {
 };
 
 export default TimelineItem;
+
+const DescriptionShow = styled.p`
+  order: -1;
+`;
+
+const DescriptionHidden = styled.p`
+  order: -1;
+`;
+
+const Details = styled.details`
+  summary {
+    display: flex;
+    align-items: center;
+  }
+
+  ${DescriptionHidden} {
+    display: none;
+  }
+
+  ${DescriptionShow}:after {
+    content: "..";
+  }
+
+  &[open] {
+    ${DescriptionShow} {
+      display: none;
+    }
+
+    ${DescriptionHidden} {
+      display: block;
+    }
+  }
+`;
 
 const TimelineItemWrapper = styled.li`
   display: flex;
@@ -51,7 +107,7 @@ const TimelineItemContent = styled.span.attrs<TimelineItemStyleProps>(
   })
 )<TimelineItemStyleProps>`
   border-left: solid ${(props) => props.timelineColor} 0.2rem;
-  padding: .7rem 1rem;
+  padding: 0.7rem 1rem;
   position: relative;
 `;
 
