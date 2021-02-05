@@ -16,10 +16,10 @@ const TimelineItem: React.FunctionComponent<TimelineItemProps> = (props) => {
   return (
     <TimelineItemWrapper>
       <TimelineItemContent timelineColor={props.timelineColor}>
-        <TimelineItemIcon timelineColor={props.timelineColor}/>
+        <TimelineItemIcon timelineColor={props.timelineColor} />
         <h3>{props.title}</h3>
         <p>{props.description}</p>
-        <p>{props.subDescription}</p>
+        <TimelineSubDescription>{props.subDescription}</TimelineSubDescription>
       </TimelineItemContent>
     </TimelineItemWrapper>
   );
@@ -51,6 +51,11 @@ const TimelineItemContent = styled.span.attrs<TimelineItemStyleProps>(
   })
 )<TimelineItemStyleProps>`
   border-left: solid ${(props) => props.timelineColor} 0.2rem;
-  padding: 1rem;
+  padding: .7rem 1rem;
   position: relative;
+`;
+
+const TimelineSubDescription = styled.p`
+  font-size: 0.6rem;
+  filter: brightness(80%);
 `;
