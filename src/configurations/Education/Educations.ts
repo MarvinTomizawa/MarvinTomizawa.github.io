@@ -1,7 +1,7 @@
 export const PT_EDUCATIONS_TRANSLATION = {
   "education.1.title": "Unicesumar",
   "education.1.description": "Bacharelado em Engenharia de Software",
-  "education.1.sub.description": "2016 - 2020",
+  "education.1.sub.description": "2017 - 2020",
 
   "education.2.title": "Influx",
   "education.2.description": "Lingua Inglesa",
@@ -11,7 +11,7 @@ export const PT_EDUCATIONS_TRANSLATION = {
 export const EN_EDUCATIONS_TRANSLATION = {
   "education.1.title": "Unicesumar - PR",
   "education.1.description": "Software Engineer Bachelor Degree",
-  "education.1.sub.description": "2016 - 2020",
+  "education.1.sub.description": "2017 - 2020",
 
   "education.2.title": "Influx - PR",
   "education.2.description": "English Language",
