@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { getTheme } from "../../Variables";
 
@@ -15,6 +16,7 @@ interface TimelineItemStyleProps {
 
 const TimelineItem: React.FunctionComponent<TimelineItemProps> = (props) => {
   const descriptionLenght = props.descriptionLegth || 100;
+  const { t } = useTranslation();
 
   const getDetails = () => {
     if (props.description.length <= descriptionLenght) {
@@ -31,9 +33,12 @@ const TimelineItem: React.FunctionComponent<TimelineItemProps> = (props) => {
     return (
       <Details>
         <summary>
-          <DescriptionShow>{summaryContent}</DescriptionShow>
-          <DescriptionHidden>{props.description}</DescriptionHidden>
+          <DescriptionShow>
+            {summaryContent}
+            <MoreDescriptionLink>{t("more.content.text")}</MoreDescriptionLink>
+          </DescriptionShow>
         </summary>
+        <DescriptionHidden>{props.description}</DescriptionHidden>
       </Details>
     );
   };
@@ -52,33 +57,35 @@ const TimelineItem: React.FunctionComponent<TimelineItemProps> = (props) => {
 
 export default TimelineItem;
 
-const DescriptionShow = styled.p`
-  order: -1;
+const MoreDescriptionLink = styled.span`
+  color: #1976d2;
 `;
 
-const DescriptionHidden = styled.p`
-  order: -1;
-`;
+const DescriptionShow = styled.p``;
+
+const DescriptionHidden = styled.p``;
 
 const Details = styled.details`
   summary {
     display: flex;
     align-items: center;
+    &::-webkit-details-marker {
+      display:none;
+    }
+    &:hover {
+    cursor: pointer;
+  }
+}
   }
 
   ${DescriptionHidden} {
     display: none;
   }
 
-  ${DescriptionShow}:after {
-    content: "..";
-  }
-
   &[open] {
-    ${DescriptionShow} {
+    summary {
       display: none;
     }
-
     ${DescriptionHidden} {
       display: block;
     }
