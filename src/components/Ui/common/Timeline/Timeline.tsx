@@ -15,6 +15,8 @@ export interface TimelineProps {
   descriptionLenght?: number;
   mobileDescriptionLenght?: number;
   className?: string;
+  scrollColor?: string;
+  scrollHoverColor?: string;
 }
 
 interface TimelineStyleProps {
@@ -23,6 +25,8 @@ interface TimelineStyleProps {
 
 const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
   const isMobile = props.isMobile || false;
+  const scrollColor = props.scrollColor || "#353839";
+  const scrollHoverColor = props.scrollHoverColor || "#232b2b";
   const lenght = props.descriptionLenght || 100;
   const descriptionLenght = isMobile
     ? props.mobileDescriptionLenght || lenght / 2
@@ -47,7 +51,10 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
         <TimelineTitleIcon />
         <h2>{props.title}</h2>
       </TimelineTitle>
-      <Scroll>
+      <Scroll
+        scrollColor={scrollColor}
+        scrollHoveredColor={scrollHoverColor}
+      >
         <TimelineList>{mapItems()}</TimelineList>
       </Scroll>
     </TimelineWrapper>
