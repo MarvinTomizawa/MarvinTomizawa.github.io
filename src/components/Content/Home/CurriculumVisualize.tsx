@@ -6,7 +6,13 @@ import styled from "styled-components";
 import { getTheme } from "../../Ui/Variables";
 import { Icon } from "../../Ui/common/Icon";
 
-const CurriculumVisualize: React.FunctionComponent = () => {
+interface CurriculumVisualizeProps {
+  className?: string;
+}
+
+const CurriculumVisualize: React.FunctionComponent<CurriculumVisualizeProps> = (
+  props
+) => {
   const { t, i18n } = useTranslation();
 
   const downloadSrc = () => {
@@ -21,12 +27,14 @@ const CurriculumVisualize: React.FunctionComponent = () => {
   };
 
   return (
-    <span>
-      <StyledDownload target="_blank" href={downloadSrc()}>
-        <StyledViewIcon />
-        <p>{t("curriculum.visualize")}</p>
-      </StyledDownload>
-    </span>
+    <StyledDownload
+      className={props.className}
+      target="_blank"
+      href={downloadSrc()}
+    >
+      <StyledViewIcon />
+      <p>{t("curriculum.visualize")}</p>
+    </StyledDownload>
   );
 };
 
