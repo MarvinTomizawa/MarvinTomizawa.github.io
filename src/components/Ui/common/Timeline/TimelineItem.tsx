@@ -121,6 +121,7 @@ const TimelineItemContent = styled.span.attrs<TimelineItemStyleProps>(
 `;
 
 const TimelineSubDescription = styled.p`
+  margin-top: 0.3rem;
   font-size: 0.6rem;
   filter: brightness(80%);
 `;
