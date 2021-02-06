@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { Icon } from "../Ui/common/Icon";
 import { getTheme } from "../Ui/Variables";
+import { ReactComponent as UpIcon } from "../../assets/images/up.svg";
 
 const Footer: React.FunctionComponent = () => {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
     <FooterWrapper>
       <nav>
@@ -24,11 +27,36 @@ const Footer: React.FunctionComponent = () => {
           </li>
         </IconList>
       </nav>
+      <UpButton onClick={scrollToTop}>
+        <FooterUpIcon />
+      </UpButton>
     </FooterWrapper>
   );
 };
 
 export default Footer;
+
+const FooterUpIcon = styled(UpIcon)`
+  width: 100%;
+  height: 100%;
+  fill: ${({theme}) => getTheme(theme).text}
+`;
+
+const UpButton = styled.a`
+  background: ${({ theme }) => getTheme(theme).secondaryLight};
+  border: solid 2px black;
+  position: absolute;
+  top: -1rem;
+  left: calc(50% - 1rem);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    display: none;
+  }
+`;
 
 const FooterWrapper = styled.footer`
   background-image: linear-gradient(
@@ -38,7 +66,7 @@ const FooterWrapper = styled.footer`
   );
   bottom: 0;
   height: 6rem;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem 1.5rem;
   position: absolute;
   width: 100%;
 
