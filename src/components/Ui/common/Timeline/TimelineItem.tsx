@@ -14,14 +14,16 @@ interface TimelineItemStyleProps {
 }
 
 const TimelineItem: React.FunctionComponent<TimelineItemProps> = (props) => {
-  const descriptionLenght = (props.descriptionLegth || 100);
-  
+  const descriptionLenght = props.descriptionLegth || 100;
+
   const getDetails = () => {
     if (props.description.length <= descriptionLenght) {
       return <p>{props.description}</p>;
     }
 
-    const summaryWords = props.description.substring(0, descriptionLenght).split(" ");
+    const summaryWords = props.description
+      .substring(0, descriptionLenght)
+      .split(" ");
     const summaryContent = summaryWords
       .splice(0, summaryWords.length - 1)
       .join(" ");

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { getTheme } from "../../Variables";
 import { Icon } from "../Icon";
 import { withMobile } from "../../../Hooks/useMobile";
+import CustomScrollBar from "../CustomScroll";
 
 export interface TimelineProps {
   title: string;
@@ -46,20 +47,24 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
         <TimelineTitleIcon />
         <h2>{props.title}</h2>
       </TimelineTitle>
-      <TimelineList>{mapItems()}</TimelineList>
+      <Scroll >
+        <TimelineList>{mapItems()}</TimelineList>
+      </Scroll>
     </TimelineWrapper>
   );
 };
 
 export default withMobile(Timeline);
 
+const Scroll = styled(CustomScrollBar)`
+  height: 85%;
+`;
+
 const TimelineWrapper = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
   padding: 1rem;
-
-  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
-    min-width: 23rem;
-  }
+  height: 100%;
+  width: 100%;
 `;
 
 const TimelineTitle = styled.span.attrs<TimelineStyleProps>((props) => ({
@@ -68,6 +73,7 @@ const TimelineTitle = styled.span.attrs<TimelineStyleProps>((props) => ({
   display: flex;
   border-bottom: solid ${(props) => props.topBackgroundColor} 0.2rem;
   align-items: center;
+  height: 15%;
 `;
 
 const TimelineTitleIcon = styled(Icon)`
