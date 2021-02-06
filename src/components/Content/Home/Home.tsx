@@ -12,8 +12,8 @@ const Home: React.FunctionComponent = () => {
 
   return (
     <ContentWrapper>
-      <h1>{t("content.home.title")}</h1>
-      <CurriculumVisualize />
+      <HomeTitle>{t("content.home.title")}</HomeTitle>
+      <HomeCurriculumVisualize />
       <TimelineWrapper>
         <HomeExperienceStyled />
         <HomeEducationStyled />
@@ -24,18 +24,33 @@ const Home: React.FunctionComponent = () => {
 
 export default Home;
 
+const HomeTitle = styled.h1`
+  text-align: center;
+`;
+
+const HomeCurriculumVisualize = styled(CurriculumVisualize)`
+  margin: 1rem auto;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    margin: 0;
+  }
+`;
+
 const HomeEducationStyled = styled(HomeEducation)`
+  margin-bottom: 0.5rem;
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     width: 30%;
     height: 65%;
+    margin: 0.25rem;
   }
 `;
 
 const HomeExperienceStyled = styled(HomeExperience)`
+  margin-bottom: 0.5rem;
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     width: 30%;
     height: 65%;
-    margin-right: 10px;
+    margin: 0.25rem;
   }
 `;
 
