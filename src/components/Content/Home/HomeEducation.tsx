@@ -4,7 +4,11 @@ import Timeline from "../../Ui/common/Timeline/Timeline";
 import { Educations } from "../../../configurations/Education/Educations";
 import { TimelineItemProps } from "../../Ui/common/Timeline/TimelineItem";
 
-const HomeEducation: React.FunctionComponent = () => {
+interface HomeEducationProps {
+  className?: string;
+}
+
+const HomeEducation: React.FunctionComponent<HomeEducationProps> = (props) => {
   const { t } = useTranslation();
 
   const mappedItems: TimelineItemProps[] = Educations.map((education) => {
@@ -15,7 +19,11 @@ const HomeEducation: React.FunctionComponent = () => {
     };
   });
 
-  return <Timeline title={t("home.education.title")} items={mappedItems} />;
+  return (
+    <div className={props.className}>
+      <Timeline title={t("home.education.title")} items={mappedItems} />
+    </div>
+  );
 };
 
 export default HomeEducation;
