@@ -41,14 +41,20 @@ const App: React.FunctionComponent = () => {
   };
 
   const [isDarkTheme, toggleTheme] = useDarkTheme();
-  const theme = isDarkTheme ? {...darkColorPalette} : {...lightColorPalette}
+  const theme = isDarkTheme
+    ? { ...darkColorPalette }
+    : { ...lightColorPalette };
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle></GlobalStyle>
 
       <Router>
-        <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} routes={routes} />
+        <Header
+          isDarkTheme={isDarkTheme}
+          toggleTheme={toggleTheme}
+          routes={routes}
+        />
         <Switch>{mapRoutes()}</Switch>
         <Footer />
       </Router>
