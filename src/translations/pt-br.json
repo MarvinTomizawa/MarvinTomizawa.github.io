@@ -16,5 +16,6 @@
 
   "curriculum.visualize": "Ver Curriculo Vitae",
 
-  "education.title": "Educação"
+  "home.education.title": "Educação",
+  "home.experience.title": "Experiência"
 }
