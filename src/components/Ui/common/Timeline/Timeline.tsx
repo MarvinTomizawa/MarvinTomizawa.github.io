@@ -5,13 +5,15 @@ import { getTheme } from "../../Variables";
 import { Icon } from "../Icon";
 import { withMobile } from "../../../Hooks/useMobile";
 
-interface TimelineProps {
+export interface TimelineProps {
   title: string;
   items: TimelineItemProps[];
   topColor?: string;
   timelineColor?: string;
   isMobile?: boolean;
   descriptionLenght?: number;
+  mobileDescriptionLenght?: number;
+  className?: string;
 }
 
 interface TimelineStyleProps {
@@ -21,7 +23,9 @@ interface TimelineStyleProps {
 const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
   const isMobile = props.isMobile || false;
   const lenght = props.descriptionLenght || 100;
-  const descriptionLenght = lenght / (isMobile ? 2 : 1);
+  const descriptionLenght = isMobile
+    ? props.mobileDescriptionLenght || lenght / 2
+    : lenght;
 
   const mapItems = () => {
     return props.items.map((item, index) => (
@@ -37,7 +41,7 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
   };
 
   return (
-    <TimelineWrapper>
+    <TimelineWrapper className={props.className}>
       <TimelineTitle topBackgroundColor={props.topColor}>
         <TimelineTitleIcon />
         <h2>{props.title}</h2>
