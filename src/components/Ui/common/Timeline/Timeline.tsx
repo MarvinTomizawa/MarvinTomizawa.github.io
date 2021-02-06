@@ -47,7 +47,7 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
         <TimelineTitleIcon />
         <h2>{props.title}</h2>
       </TimelineTitle>
-      <Scroll >
+      <Scroll>
         <TimelineList>{mapItems()}</TimelineList>
       </Scroll>
     </TimelineWrapper>
@@ -73,7 +73,6 @@ const TimelineTitle = styled.span.attrs<TimelineStyleProps>((props) => ({
   display: flex;
   border-bottom: solid ${(props) => props.topBackgroundColor} 0.2rem;
   align-items: center;
-  height: 15%;
 `;
 
 const TimelineTitleIcon = styled(Icon)`
