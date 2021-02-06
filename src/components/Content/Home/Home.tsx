@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import CurriculumVisualize from "./CurriculumVisualize";
-import { ContentWrapper } from "../ContentStyle";
+import ContentWrapper from "../ContentStyle";
 import HomeEducation from "./HomeEducation";
 import HomeExperience from "./HomeExperience";
 import styled from "styled-components";

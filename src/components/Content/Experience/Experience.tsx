@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { ContentWrapper } from "../ContentStyle";
+import ContentWrapper from "../ContentStyle";
 
 const Experience: React.FunctionComponent = () => {
   const { t } = useTranslation();
