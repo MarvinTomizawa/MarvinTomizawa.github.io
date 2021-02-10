@@ -61,7 +61,7 @@ const ItemIcon = styled.div`
   display: flex;
   height: 3rem;
   justify-content: center;
-  margin: 1rem;
+  margin: 0.5rem;
   width: 3rem;
 
   & div {
