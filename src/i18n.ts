@@ -7,17 +7,22 @@ import {
   EN_EDUCATIONS_TRANSLATION,
   PT_EDUCATIONS_TRANSLATION,
 } from "./configurations/Education/Educations";
-
 import {
   EN_EXPERIENCE_TRANSLATION,
   PT_EXPERIENCE_TRANSLATION,
 } from "./configurations/Experience/Experience";
+import {
+  EN_LANGUAGE_TRANSLATION,
+  PT_LANGUAGE_TRANSLATION,
+} from "./configurations/Languages/Languages";
+
 const resources = {
   en: {
     translation: {
       ...EnTranslation,
       ...EN_EDUCATIONS_TRANSLATION,
       ...EN_EXPERIENCE_TRANSLATION,
+      ...EN_LANGUAGE_TRANSLATION,
     },
   },
   pt: {
@@ -25,6 +30,7 @@ const resources = {
       ...PtTranslation,
       ...PT_EDUCATIONS_TRANSLATION,
       ...PT_EXPERIENCE_TRANSLATION,
+      ...PT_LANGUAGE_TRANSLATION,
     },
   },
 };

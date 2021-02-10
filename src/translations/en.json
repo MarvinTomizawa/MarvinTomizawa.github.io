@@ -7,7 +7,6 @@
   "header.link.contact": "Contact",
   "header.link.notFound": "Not found",
 
-  "content.home.title": "Home Page",
   "content.about.title": "About Page",
   "content.experience.title": "Experience Page",
   "content.skills.title": "Skills Page",
@@ -18,5 +17,6 @@
 
   "home.education.title": "Education",
   "home.experience.title": "Experience",
-  "more.content.text": "...more"
+  "more.content.text": "...more",
+  "home.language.title": "Languages"
 }
