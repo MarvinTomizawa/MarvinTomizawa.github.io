@@ -3,7 +3,7 @@ import styled, { withTheme } from "styled-components";
 import { withTranslation } from "react-i18next";
 import { getTheme } from "../Variables";
 import { ELanguage } from "../../../models/Router/ELanguage";
-
+import { Languages } from "../../../configurations/Languages/Languages";
 const StyledSelect = styled.select`
   border: none;
   border-radius: 10px;
@@ -14,6 +14,7 @@ const StyledSelect = styled.select`
 export interface LanguagePickerProps {
   showOnlyIcons: boolean;
   i18n?: any;
+  t: Function;
   className?: string;
   theme?: any;
 }
@@ -27,11 +28,20 @@ class LanguagePicker extends React.Component<
   LanguagePickerState
 > {
   handleResizeRef: any;
-
   constructor(props: LanguagePickerProps) {
     super(props);
     this.state = { language: ELanguage.default };
   }
+
+  getOptions = () => {
+    return Languages.map((language, index) => (
+      <option value={language.value} key={index}>
+        {this.props.showOnlyIcons
+          ? language.icon
+          : this.props.t(language.nativeTitle)}
+      </option>
+    ));
+  };
 
   render() {
     return (
@@ -41,12 +51,7 @@ class LanguagePicker extends React.Component<
         onChange={(event) => this.changeLanguage(event)}
         name="languages"
       >
-        <option value={ELanguage.portuguese}>
-          {this.props.showOnlyIcons ? "🇧🇷" : "Português"}
-        </option>
-        <option value={ELanguage.english}>
-          {this.props.showOnlyIcons ? "🇺🇸" : "English"}
-        </option>
+        {this.getOptions()}
       </StyledSelect>
     );
   }
