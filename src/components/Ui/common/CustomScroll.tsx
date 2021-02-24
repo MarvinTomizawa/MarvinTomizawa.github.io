@@ -26,7 +26,7 @@ const CustomScrollBarWrapper = styled.div.attrs<CustomScrollProps>((props) => ({
   scrollColor: props.scrollColor,
   scrollHoveredColor: props.scrollHoveredColor || props.scrollColor,
 }))<CustomScrollProps>`
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   overflow: auto;
 
