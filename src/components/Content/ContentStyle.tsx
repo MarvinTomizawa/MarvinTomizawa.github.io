@@ -14,7 +14,6 @@ const ContentWrapper: React.FunctionComponent<ContentWrapperProps> = (
 export default ContentWrapper;
 
 const Content = styled.main`
-  padding: 1rem;
   padding-bottom: 6rem;
   width: 100%;
 
