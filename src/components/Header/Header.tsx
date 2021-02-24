@@ -4,13 +4,14 @@ import { Link, withRouter } from "react-router-dom";
 import { withTheme } from "styled-components";
 import RouteModel from "../../models/Router/RouteModel";
 import { withMobile } from "../Hooks/useMobile";
+import Logo from "../Ui/common/Logo";
 import UnderHoverEffect from "../Ui/common/UnderHoverEffects";
 import { ICustomTheme } from "../Ui/Variables";
 
 import {
   HeaderConfigButtons,
   HeaderLanguagePicker,
-  HeaderTitle,
+  HeaderLogo,
   HeaderThemeChanger,
   HeaderWrapper,
   LinkList,
@@ -37,17 +38,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   render() {
     return (
       <HeaderWrapper>
-        <HeaderTitle>{this.props.t("header.logo.name")}</HeaderTitle>
-        <nav>
-          <LinkList>{this.mapLinks(this.props.location.pathname)}</LinkList>
-        </nav>
+        <HeaderLogo />
         <HeaderConfigButtons>
-          <HeaderLanguagePicker showOnlyIcons={this.props.isMobile || false} />
           <HeaderThemeChanger
             isDarkTheme={this.props.isDarkTheme}
             toggleTheme={this.props.toggleTheme}
           />
+          <HeaderLanguagePicker showOnlyIcons={this.props.isMobile || false} />
         </HeaderConfigButtons>
+        <nav>
+          <LinkList>{this.mapLinks(this.props.location.pathname)}</LinkList>
+        </nav>
       </HeaderWrapper>
     );
   }
