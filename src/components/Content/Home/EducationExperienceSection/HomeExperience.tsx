@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import Timeline from "../../Ui/common/Timeline/Timeline";
-import { Experiences } from "../../../configurations/Experience/Experience";
-import { TimelineItemProps } from "../../Ui/common/Timeline/TimelineItem";
+import Timeline from "../../../Ui/common/Timeline/Timeline";
+import { Experiences } from "../../../../configurations/Experience/Experience";
+import { TimelineItemProps } from "../../../Ui/common/Timeline/TimelineItem";
 
 interface HomeExperienceProps {
   className?: string;

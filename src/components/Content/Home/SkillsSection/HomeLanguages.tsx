@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { getTheme } from "../../Ui/Variables";
-import { Languages } from "../../../configurations/Languages/Languages";
+import { getTheme } from "../../../Ui/Variables";
+import { Languages } from "../../../../configurations/Languages/Languages";
 export interface LanguagesProps {
   className?: string;
 }
