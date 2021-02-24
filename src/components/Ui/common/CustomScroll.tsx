@@ -26,27 +26,29 @@ const CustomScrollBarWrapper = styled.div.attrs<CustomScrollProps>((props) => ({
   scrollColor: props.scrollColor,
   scrollHoveredColor: props.scrollHoveredColor || props.scrollColor,
 }))<CustomScrollProps>`
-  min-height: 100%;
-  width: 100%;
-  overflow: auto;
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    min-height: 100%;
+    width: 100%;
+    overflow: auto;
 
-  ::-webkit-scrollbar {
-    height: 0.5rem;
-    width: 0.5rem;
-  }
+    ::-webkit-scrollbar {
+      height: 0.5rem;
+      width: 0.5rem;
+    }
 
-  ::-webkit-scrollbar-corner {
-    background: transparent;
-  }
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background: ${(props) =>
-      props.scrollColor || getTheme(props.theme).primaryDark};
-    border-radius: 10px;
-  }
+    ::-webkit-scrollbar-thumb {
+      background: ${(props) =>
+        props.scrollColor || getTheme(props.theme).primaryDark};
+      border-radius: 10px;
+    }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${(props) =>
-      props.scrollHoveredColor || getTheme(props.theme).primary};
+    ::-webkit-scrollbar-thumb:hover {
+      background: ${(props) =>
+        props.scrollHoveredColor || getTheme(props.theme).primary};
+    }
   }
 `;

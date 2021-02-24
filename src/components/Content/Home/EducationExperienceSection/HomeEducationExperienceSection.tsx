@@ -22,37 +22,40 @@ const HomeEducationExperienceSection: React.FunctionComponent<HomeEducationExper
 export default HomeEducationExperienceSection;
 
 const StyledSection = styled.section`
-  height: 100%;
-  width: 100%;
   display: flex;
+  height: 100%;
   flex-direction: column;
+  padding: 0 .25rem;
+  width: 100%;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     height: 75%;
+    justify-content: space-evenly;
     flex-direction: row;
-    justify-content: space-around;
+    padding: 0;
+    padding-bottom: 2rem;
   }
 `;
 
 const HomeEducationStyled = styled(HomeEducation)`
-  margin-bottom: 0.5rem;
   height: 50%;
+  margin-bottom: 0.5rem;
   width: 100%;
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     height: 100%;
-    width: 50%;
     margin: 0 1rem;
+    width: 45%;
   }
 `;
 
 const HomeExperienceStyled = styled(HomeExperience)`
-  margin-bottom: 0.5rem;
   height: 50%;
+  margin-bottom: 0.5rem;
   width: 100%;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     height: 100%;
-    width: 50%;
     margin: 0 1rem;
+    width: 45%;
   }
 `;
