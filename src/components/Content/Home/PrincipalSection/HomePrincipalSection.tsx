@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import Logo from "../../../Ui/common/Logo";
 import { getTheme } from "../../../Ui/Variables";
 
 export interface HomePrincipalSectionProps {
@@ -12,7 +13,7 @@ const HomePrincipalSection: React.FunctionComponent<HomePrincipalSectionProps> =
   return (
     <StyledSection className={props.className}>
       <StyledDiv>
-        <p>Marvin Tomizawa</p>
+        <StyledLogo />
       </StyledDiv>
     </StyledSection>
   );
@@ -21,14 +22,14 @@ const HomePrincipalSection: React.FunctionComponent<HomePrincipalSectionProps> =
 export default HomePrincipalSection;
 
 const StyledSection = styled.section`
-  background: ${({ theme }) => getTheme(theme).secondary};
-  height: 10rem;
-  margin-bottom: 2rem;
-  width: 100%;
+  display: none;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    background: ${({ theme }) => getTheme(theme).secondary};
+    display: block;
     height: 80%;
     margin-bottom: 5rem;
+    width: 100%;
   }
 `;
 
@@ -38,4 +39,8 @@ const StyledDiv = styled.div`
   justify-content: center;
   height: 100%;
   width: 100%;
+`;
+
+const StyledLogo = styled(Logo)`
+  font-size: 5rem;
 `;

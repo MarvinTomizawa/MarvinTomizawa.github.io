@@ -25,7 +25,8 @@ const StyledSection = styled.section`
   display: flex;
   height: 100%;
   flex-direction: column;
-  padding: 0 .25rem;
+  padding: 0.5rem 0.25rem;
+  padding-bottom: 0;
   width: 100%;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {

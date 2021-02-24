@@ -4,7 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 import { withTheme } from "styled-components";
 import RouteModel from "../../models/Router/RouteModel";
 import { withMobile } from "../Hooks/useMobile";
-import Logo from "../Ui/common/Logo";
 import UnderHoverEffect from "../Ui/common/UnderHoverEffects";
 import { ICustomTheme } from "../Ui/Variables";
 
