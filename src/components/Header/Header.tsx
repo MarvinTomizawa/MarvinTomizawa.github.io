@@ -4,6 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import { withTheme } from "styled-components";
 import RouteModel from "../../models/Router/RouteModel";
 import { withMobile } from "../Hooks/useMobile";
+import CurriculumVisualize from "../Ui/common/CurriculumVisualize";
 import UnderHoverEffect from "../Ui/common/UnderHoverEffects";
 import { ICustomTheme } from "../Ui/Variables";
 
@@ -15,6 +16,7 @@ import {
   HeaderWrapper,
   LinkList,
   LinkListItem,
+  NavList,
 } from "./HeaderStyles";
 
 interface HeaderProps {
@@ -45,9 +47,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           />
           <HeaderLanguagePicker showOnlyIcons={this.props.isMobile || false} />
         </HeaderConfigButtons>
-        <nav>
-          <LinkList>{this.mapLinks(this.props.location.pathname)}</LinkList>
-        </nav>
+        <NavList>
+          <LinkList>
+            {this.mapLinks(this.props.location.pathname)}
+            <UnderHoverEffect
+              primaryColor={this.props.theme?.primaryDark}
+              secondaryColor={this.props.theme?.secondaryLight}
+            >
+              <CurriculumVisualize />
+            </UnderHoverEffect>
+          </LinkList>
+        </NavList>
       </HeaderWrapper>
     );
   }

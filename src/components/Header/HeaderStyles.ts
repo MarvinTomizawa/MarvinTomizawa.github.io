@@ -22,18 +22,22 @@ export const HeaderWrapper = styled.header`
     flex-direction: row;
     height: 10%;
     padding: 1rem;
-    nav {
-      min-width: 400px;
-      width: 40%;
-      display: flex;
-      justify-content: center;
-    }
   }
 `;
 
 export const HeaderLogo = styled(Logo)`
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     display: none;
+  }
+`;
+
+export const NavList = styled.nav`
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    min-width: 400px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
