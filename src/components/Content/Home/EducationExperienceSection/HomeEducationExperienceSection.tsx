@@ -34,7 +34,6 @@ const StyledSection = styled.section`
     justify-content: space-evenly;
     flex-direction: row;
     padding: 0;
-    padding-bottom: 2rem;
   }
 `;
 
