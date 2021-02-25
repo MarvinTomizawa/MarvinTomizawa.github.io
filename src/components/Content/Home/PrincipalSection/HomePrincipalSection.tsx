@@ -27,7 +27,7 @@ const StyledSection = styled.section`
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     background: ${({ theme }) => getTheme(theme).secondary};
     display: block;
-    height: 80%;
+    height: 35%;
     margin-bottom: 5rem;
     width: 100%;
   }
