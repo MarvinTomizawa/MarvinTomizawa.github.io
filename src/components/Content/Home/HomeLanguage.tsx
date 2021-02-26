@@ -31,7 +31,7 @@ export default HomeLanguage;
 
 const StyledSection = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
-  margin: 0.25rem;
+  margin: 0 0.25rem;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
 
