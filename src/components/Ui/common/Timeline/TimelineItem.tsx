@@ -70,12 +70,11 @@ const Details = styled.details`
     display: flex;
     align-items: center;
     &::-webkit-details-marker {
-      display:none;
+      display: none;
     }
     &:hover {
-    cursor: pointer;
-  }
-}
+      cursor: pointer;
+    }
   }
 
   ${DescriptionHidden} {
