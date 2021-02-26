@@ -42,5 +42,5 @@ const StyledDiv = styled.div`
 `;
 
 const StyledLogo = styled(Logo)`
-  font-size: 5rem;
+  font-size: 400%;
 `;
