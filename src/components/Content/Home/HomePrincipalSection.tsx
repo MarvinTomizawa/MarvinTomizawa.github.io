@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import Logo from "../../../Ui/common/Logo";
-import { getTheme } from "../../../Ui/Variables";
+import Logo from "../../Ui/common/Logo";
+import { getTheme } from "../../Ui/Variables";
 
 export interface HomePrincipalSectionProps {
   className?: string;
