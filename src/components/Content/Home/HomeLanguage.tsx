@@ -8,7 +8,7 @@ export interface HomeLanguageProps {
   className?: string;
 }
 
-const HomeLanguage: React.SFC<HomeLanguageProps> = (props) => {
+const HomeLanguage: React.FunctionComponent<HomeLanguageProps> = (props) => {
   const { t } = useTranslation();
   const getItems = () => {
     return Languages.map((language, index) => (
@@ -33,11 +33,11 @@ const StyledSection = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
   margin: 0.25rem;
   margin-bottom: 0.5rem;
-  padding: .5rem;
+  padding: 0.5rem;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
-      margin: auto;
-      width: 94%;
+    margin: auto;
+    width: 94%;
   }
 `;
 
