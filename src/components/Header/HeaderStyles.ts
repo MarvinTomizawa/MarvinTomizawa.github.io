@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import LanguagePicker from "../Ui/common/LanguagePicker";
+import Logo from "../Ui/common/Logo";
 import ThemeChanger from "../Ui/common/ThemeChanger";
 import { getTheme } from "../Ui/Variables";
 
@@ -21,20 +22,23 @@ export const HeaderWrapper = styled.header`
     flex-direction: row;
     height: 10%;
     padding: 1rem;
-    nav {
-      min-width: 400px;
-      width: 40%;
-      display: flex;
-      justify-content: center;
-    }
   }
 `;
 
-export const HeaderTitle = styled.h1`
-  font-family: Pacifico, cursive;
-  color: white;
-  margin-block-start: 0px;
-  text-shadow: 2px 2px black;
+export const HeaderLogo = styled(Logo)`
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    display: none;
+  }
+`;
+
+export const NavList = styled.nav`
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    min-width: 400px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const LinkList = styled.ul`
@@ -43,6 +47,7 @@ export const LinkList = styled.ul`
   justify-content: center;
   align-items: center;
   list-style: none;
+  width: 100%;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     justify-content: flex-end;
@@ -72,7 +77,7 @@ export const HeaderLanguagePicker = styled(LanguagePicker)`
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     position: inherit;
     flex-basis: content;
-    margin-right: 1rem;
+    margin-left: 1rem;
     margin-top: 5px;
   }
 `;

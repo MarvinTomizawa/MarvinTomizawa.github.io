@@ -15,6 +15,7 @@ import Contact from "./components/Content/Contact/Contact";
 import { useTranslation } from "react-i18next";
 import { useDarkTheme } from "./components/Hooks/useDarkMode";
 import Playground from "./components/Content/Playground/Playground";
+import CustomScrollBar from "./components/Ui/common/CustomScroll";
 
 const App: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -50,13 +51,15 @@ const App: React.FunctionComponent = () => {
       <GlobalStyle></GlobalStyle>
 
       <Router>
-        <Header
-          isDarkTheme={isDarkTheme}
-          toggleTheme={toggleTheme}
-          routes={routes}
-        />
-        <Switch>{mapRoutes()}</Switch>
-        <Footer />
+        <CustomScrollBar>
+          <Header
+            isDarkTheme={isDarkTheme}
+            toggleTheme={toggleTheme}
+            routes={routes}
+          />
+          <Switch>{mapRoutes()}</Switch>
+          <Footer />
+        </CustomScrollBar>
       </Router>
     </ThemeProvider>
   );

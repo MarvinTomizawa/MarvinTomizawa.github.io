@@ -4,17 +4,19 @@ import { Link, withRouter } from "react-router-dom";
 import { withTheme } from "styled-components";
 import RouteModel from "../../models/Router/RouteModel";
 import { withMobile } from "../Hooks/useMobile";
+import CurriculumVisualize from "../Ui/common/CurriculumVisualize";
 import UnderHoverEffect from "../Ui/common/UnderHoverEffects";
 import { ICustomTheme } from "../Ui/Variables";
 
 import {
   HeaderConfigButtons,
   HeaderLanguagePicker,
-  HeaderTitle,
+  HeaderLogo,
   HeaderThemeChanger,
   HeaderWrapper,
   LinkList,
   LinkListItem,
+  NavList,
 } from "./HeaderStyles";
 
 interface HeaderProps {
@@ -37,17 +39,25 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   render() {
     return (
       <HeaderWrapper>
-        <HeaderTitle>{this.props.t("header.logo.name")}</HeaderTitle>
-        <nav>
-          <LinkList>{this.mapLinks(this.props.location.pathname)}</LinkList>
-        </nav>
+        <HeaderLogo />
         <HeaderConfigButtons>
-          <HeaderLanguagePicker showOnlyIcons={this.props.isMobile || false} />
           <HeaderThemeChanger
             isDarkTheme={this.props.isDarkTheme}
             toggleTheme={this.props.toggleTheme}
           />
+          <HeaderLanguagePicker showOnlyIcons={this.props.isMobile || false} />
         </HeaderConfigButtons>
+        <NavList>
+          <LinkList>
+            {this.mapLinks(this.props.location.pathname)}
+            <UnderHoverEffect
+              primaryColor={this.props.theme?.primaryDark}
+              secondaryColor={this.props.theme?.secondaryLight}
+            >
+              <CurriculumVisualize />
+            </UnderHoverEffect>
+          </LinkList>
+        </NavList>
       </HeaderWrapper>
     );
   }

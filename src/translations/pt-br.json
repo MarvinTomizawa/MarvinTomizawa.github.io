@@ -13,10 +13,11 @@
   "content.contact.title": "Contato",
   "content.notFound.title": "404 Não Encontrado",
 
-  "curriculum.visualize": "Ver Curriculo Vitae",
+  "curriculum.visualize": "Curriculo Vitae",
 
   "home.education.title": "Educação",
   "home.experience.title": "Experiência",
   "more.content.text": "...mais",
-  "home.language.title": "Idiomas"
+  "home.language.title": "Idiomas",
+  "home.skills.title": "Habilidades"
 }

@@ -15,6 +15,10 @@ import {
   EN_LANGUAGE_TRANSLATION,
   PT_LANGUAGE_TRANSLATION,
 } from "./configurations/Languages/Languages";
+import {
+  EN_SKILL_TRANSLATION,
+  PT_SKILL_TRANSLATION
+} from "./configurations/Skills/Skills";
 
 const resources = {
   en: {
@@ -23,6 +27,7 @@ const resources = {
       ...EN_EDUCATIONS_TRANSLATION,
       ...EN_EXPERIENCE_TRANSLATION,
       ...EN_LANGUAGE_TRANSLATION,
+      ...EN_SKILL_TRANSLATION,
     },
   },
   pt: {
@@ -31,6 +36,7 @@ const resources = {
       ...PT_EDUCATIONS_TRANSLATION,
       ...PT_EXPERIENCE_TRANSLATION,
       ...PT_LANGUAGE_TRANSLATION,
+      ...PT_SKILL_TRANSLATION,
     },
   },
 };

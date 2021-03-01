@@ -1,13 +1,14 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { getTheme } from "../../Ui/Variables";
 import { Languages } from "../../../configurations/Languages/Languages";
-export interface LanguagesProps {
+import { getTheme } from "../../Ui/Variables";
+
+export interface HomeLanguageProps {
   className?: string;
 }
 
-const HomeLanguages: React.FunctionComponent<LanguagesProps> = (props) => {
+const HomeLanguage: React.FunctionComponent<HomeLanguageProps> = (props) => {
   const { t } = useTranslation();
   const getItems = () => {
     return Languages.map((language, index) => (
@@ -19,18 +20,25 @@ const HomeLanguages: React.FunctionComponent<LanguagesProps> = (props) => {
   };
 
   return (
-    <LanguagesWrapper className={props.className}>
+    <StyledSection className={props.className}>
       <HomeLanguagesTitle>{t("home.language.title")}</HomeLanguagesTitle>
       <LanguagesList>{getItems()}</LanguagesList>
-    </LanguagesWrapper>
+    </StyledSection>
   );
 };
 
-export default HomeLanguages;
+export default HomeLanguage;
 
-const LanguagesWrapper = styled.div`
+const StyledSection = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
-  padding: 1rem;
+  margin: 0 0.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    margin: auto;
+    width: 94%;
+  }
 `;
 
 const HomeLanguagesTitle = styled.h2`

@@ -64,7 +64,8 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
 export default withMobile(Timeline);
 
 const Scroll = styled(CustomScrollBar)`
-  height: 85%;
+  min-height: 90%;
+  height: 90%;
 `;
 
 const TimelineWrapper = styled.section`
@@ -89,4 +90,5 @@ const TimelineTitleIcon = styled(Icon)`
 const TimelineList = styled.ul`
   list-style: none;
   padding: 0.5rem 0;
+  height: 100%;
 `;
