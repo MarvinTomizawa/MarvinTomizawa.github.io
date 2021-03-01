@@ -20,7 +20,7 @@ export const HeaderWrapper = styled.header`
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     flex-direction: row;
-    height: 10%;
+    height: 6vh;
     padding: 1rem;
   }
 `;
