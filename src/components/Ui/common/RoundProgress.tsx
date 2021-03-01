@@ -18,6 +18,18 @@ interface StylizationProps {
 }
 
 const RoundProgress: React.FunctionComponent<RoundProgressProps> = (props) => {
+  const getCircleProgression = () => {
+    if (!props.progress || props.progress === 100) {
+      return <Circle />;
+    }
+    return (
+      <>
+        <LeftCircle />
+        <RightCircle />
+      </>
+    );
+  };
+
   return (
     <RoundProgressWrapper
       progress={props.progress}
@@ -26,12 +38,13 @@ const RoundProgress: React.FunctionComponent<RoundProgressProps> = (props) => {
       backgroundColor={props.backgroundColor}
     >
       <BackgroundCircle />
-      <RoundProgressCircle progressColor={props.progressColor}>
-        <LeftCircle />
-        <RightCircle />
+      <RoundProgressCircle
+        progressColor={props.progressColor}
+      >
+        {getCircleProgression()}
       </RoundProgressCircle>
       <InsideCircle>{props.children}</InsideCircle>
-      <ProgressCircleEffect size ={props.size} />
+      <ProgressCircleEffect size={props.size} />
     </RoundProgressWrapper>
   );
 };
@@ -107,11 +120,7 @@ const RoundProgressCircle = styled.div.attrs<StylizationProps>((prop) => ({
   position: absolute;
   width: 100%;
 
-  ${LeftCircle} {
-    background-color: ${(prop) => prop.progressColor};
-  }
-
-  ${RightCircle} {
+  ${Circle} {
     background-color: ${(prop) => prop.progressColor};
   }
 `;
