@@ -13,8 +13,8 @@ const HomeEducationExperienceSection: React.FunctionComponent<HomeEducationExper
 ) => {
   return (
     <StyledSection className={props.className}>
-      <HomeEducationStyled />
       <HomeExperienceStyled />
+      <HomeEducationStyled />
     </StyledSection>
   );
 };
@@ -34,6 +34,7 @@ const StyledSection = styled.section`
     justify-content: space-evenly;
     flex-direction: row;
     padding: 0;
+    margin: 5rem auto;
   }
 `;
 
@@ -44,6 +45,7 @@ const HomeEducationStyled = styled(HomeEducation)`
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     height: 100%;
     margin: 0 1rem;
+    
     width: 45%;
   }
 `;

@@ -42,7 +42,7 @@ export default withMobile(HomeSkills);
 const StyledSection = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
   margin: 0 0.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     margin: 5rem auto;
@@ -61,7 +61,6 @@ const SkillList = styled.ul`
   justify-content: center; 
   list-style: none;
   flex-wrap: wrap;
-  margin: 0.5rem auto;
   width: 95%;
 `;
 

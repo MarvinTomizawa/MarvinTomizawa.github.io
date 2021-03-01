@@ -9,8 +9,8 @@ const Home: React.FunctionComponent = () => {
   return (
     <ContentWrapper>
       <HomePrincipalSection />
-      <HomeEducationExperienceSection />
       <HomeSkills />
+      <HomeEducationExperienceSection />
       <HomeLanguage />
     </ContentWrapper>
   );

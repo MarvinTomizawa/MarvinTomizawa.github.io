@@ -36,7 +36,8 @@ const StyledSection = styled.section`
   padding: 0.5rem;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
-    margin: auto;
+    margin:0 auto;
+    margin-bottom: 10vh;
     width: 94%;
   }
 `;
