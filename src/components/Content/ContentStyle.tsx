@@ -18,7 +18,7 @@ const Content = styled.main`
   width: 100%;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
-    height: 85vh;
+    height: 86.5vh;
     padding-bottom: 2rem;
   }
 `;
