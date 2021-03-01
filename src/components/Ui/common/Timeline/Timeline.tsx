@@ -11,6 +11,7 @@ export interface TimelineProps {
   items: TimelineItemProps[];
   topColor?: string;
   timelineColor?: string;
+  iconUrl?: string;
   isMobile?: boolean;
   descriptionLenght?: number;
   mobileDescriptionLenght?: number;
@@ -48,7 +49,7 @@ const Timeline: React.FunctionComponent<TimelineProps> = (props) => {
   return (
     <TimelineWrapper className={props.className}>
       <TimelineTitle topBackgroundColor={props.topColor}>
-        <TimelineTitleIcon />
+        <TimelineTitleIcon url={props.iconUrl}/>
         <h2>{props.title}</h2>
       </TimelineTitle>
       <Scroll

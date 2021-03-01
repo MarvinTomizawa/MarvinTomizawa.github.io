@@ -58,15 +58,11 @@ const Title = styled.h2`
 
 const SkillList = styled.ul`
   display: flex;
+  justify-content: center; 
   list-style: none;
   flex-wrap: wrap;
   margin: 0.5rem auto;
   width: 95%;
-
-  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
-    width: 95%;
-    justify-content: center; 
-  }
 `;
 
 const SkillItem = styled.li`

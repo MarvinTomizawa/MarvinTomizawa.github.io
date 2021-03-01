@@ -28,6 +28,7 @@ const HomeExperience: React.FunctionComponent<HomeExperienceProps> = (
         items={experienceItens}
         descriptionLenght={40}
         mobileDescriptionLenght={40}
+        iconUrl="https://icons-for-free.com/iconfiles/png/512/case+job+work+icon-1320185594726714045.png"
       />
     </div>
   );
