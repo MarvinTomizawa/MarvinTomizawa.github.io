@@ -31,7 +31,7 @@ const RoundProgress: React.FunctionComponent<RoundProgressProps> = (props) => {
         <RightCircle />
       </RoundProgressCircle>
       <InsideCircle>{props.children}</InsideCircle>
-      <ProgressCircleEffect size={props.size} />
+      <ProgressCircleEffect size ={props.size} />
     </RoundProgressWrapper>
   );
 };
