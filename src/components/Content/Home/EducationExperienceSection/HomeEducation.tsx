@@ -21,7 +21,11 @@ const HomeEducation: React.FunctionComponent<HomeEducationProps> = (props) => {
 
   return (
     <div className={props.className}>
-      <Timeline title={t("home.education.title")} items={mappedItems} />
+      <Timeline
+        title={t("home.education.title")}
+        items={mappedItems}
+        iconUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/1200px-Closed_Book_Icon.svg.png"
+      />
     </div>
   );
 };
