@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/static/js/main.a2642ba1.chunk.js",
-    "main.js.map": "/static/js/main.a2642ba1.chunk.js.map",
+    "main.js": "/static/js/main.e671b56f.chunk.js",
+    "main.js.map": "/static/js/main.e671b56f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.83ab41c1.js",
     "runtime-main.js.map": "/static/js/runtime-main.83ab41c1.js.map",
-    "static/js/2.eb2d94ab.chunk.js": "/static/js/2.eb2d94ab.chunk.js",
-    "static/js/2.eb2d94ab.chunk.js.map": "/static/js/2.eb2d94ab.chunk.js.map",
+    "static/js/2.46227b57.chunk.js": "/static/js/2.46227b57.chunk.js",
+    "static/js/2.46227b57.chunk.js.map": "/static/js/2.46227b57.chunk.js.map",
     "static/js/3.aec0e1fb.chunk.js": "/static/js/3.aec0e1fb.chunk.js",
     "static/js/3.aec0e1fb.chunk.js.map": "/static/js/3.aec0e1fb.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/2.eb2d94ab.chunk.js.LICENSE.txt": "/static/js/2.eb2d94ab.chunk.js.LICENSE.txt",
+    "static/js/2.46227b57.chunk.js.LICENSE.txt": "/static/js/2.46227b57.chunk.js.LICENSE.txt",
     "static/media/download-direto.a4bfa52a.svg": "/static/media/download-direto.a4bfa52a.svg",
     "static/media/lightbulb-off.b19dd014.svg": "/static/media/lightbulb-off.b19dd014.svg",
     "static/media/lightbulb-on.6650b90d.svg": "/static/media/lightbulb-on.6650b90d.svg",
@@ -17,7 +17,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.83ab41c1.js",
-    "static/js/2.eb2d94ab.chunk.js",
-    "static/js/main.a2642ba1.chunk.js"
+    "static/js/2.46227b57.chunk.js",
+    "static/js/main.e671b56f.chunk.js"
   ]
 }
