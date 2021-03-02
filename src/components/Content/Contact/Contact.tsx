@@ -1,16 +1,18 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 import ContentWrapper from "../ContentStyle";
+import ContactForm from "./ContactForm";
 
 const Contact: React.FunctionComponent = () => {
-  const {t} = useTranslation();
-
   return (
-    <ContentWrapper>
-      <h1>{t("content.contact.title")}</h1>
-    </ContentWrapper>
+    <StyledWrapper>
+      <ContactForm />
+    </StyledWrapper>
   );
 };
 
-
 export default Contact;
+
+const StyledWrapper = styled(ContentWrapper)`
+  padding: 2rem;
+`;
