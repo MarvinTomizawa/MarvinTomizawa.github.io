@@ -31,7 +31,6 @@ class Contact extends React.Component<ContactProps, ContactState> {
 
         <ContactFormStyled highlightSocialMedia={this.highlightSocialMedia} />
         <ContactSocialMediaStyled isHighlited={this.state.isHighlited} />
-
       </StyledWrapper>
     );
   }
@@ -45,8 +44,11 @@ export default withTranslation()(Contact);
 
 const StyledWrapper = styled(ContentWrapper)`
   position: relative;
-  padding: 2rem;
   width: 100%;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    padding: 0.5rem;
+  }
 `;
 
 const TitleWrapper = styled.div`
@@ -55,31 +57,56 @@ const TitleWrapper = styled.div`
   align-items: center;
   width: 100%;
   text-align: center;
+  padding: 0 1rem;
 `;
 
 const Title = styled.h1`
   padding: 0.5rem;
-  font-size: 3rem;
+  font-size: 2rem;
   font-style: oblique;
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    font-size: 3rem;
+  }
 `;
 
 const TitleDivision = styled.span`
-  width: 8%;
+  width: 25%;
   border-bottom: ${({ theme }) => getTheme(theme).text} solid 0.25rem;
   border-radius: 10px;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    width: 8%;
+  }
 `;
 
 const SubTitle = styled.p`
-  padding-top: 2.5rem;
-  font-size: 1.1rem;
   color: ${({ theme }) => getTheme(theme).primaryLight};
+  font-size: 0.9rem;
+  padding-top: 0.5rem;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    font-size: 1.1rem;
+    padding-top: 2.5rem;
+  }
 `;
 
 const ContactFormStyled = styled(ContactForm)`
-  width: 50%;
-  margin: 3rem auto;
+  margin: 1rem auto;
+  width: 90%;
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    width: 50%;
+    margin: 3rem auto;
+  }
 `;
 
 const ContactSocialMediaStyled = styled(ContactSocialMedia)`
-  width: 20%;
+  display: none;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    display: block;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 10%;
+  }
 `;
