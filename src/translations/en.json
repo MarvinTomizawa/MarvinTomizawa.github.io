@@ -19,5 +19,14 @@
   "home.experience.title": "Experience",
   "more.content.text": "...more",
   "home.language.title": "Languages",
-  "home.skills.title": "Skills"
+  "home.skills.title": "Skills",
+
+  "contact.title": "Contact",
+  "contact.subtitle": "Have a question or want to work together ?",
+  "contact.email": "Your email",
+  "contact.subject": "Subject",
+  "contact.message": "Message",
+  "contact.submit": "Submit",
+  "contact.done": "Thank you for making contact!!",
+  "contact.error": "It seems that there was an error, please try any other social media!"
 }

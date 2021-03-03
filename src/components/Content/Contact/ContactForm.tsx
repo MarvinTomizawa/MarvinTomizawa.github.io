@@ -1,9 +1,13 @@
 import * as React from "react";
 import { withTranslation } from "react-i18next";
+import styled from "styled-components";
 import "whatwg-fetch";
+import { getTheme } from "../../Ui/Variables";
 
 export interface ContactFormProps {
   t: Function;
+  highlightSocialMedia: Function;
+  className?: string;
 }
 
 export interface ContactFormState {
@@ -22,37 +26,45 @@ class ContactForm extends React.Component<ContactFormProps, ContactFormState> {
   render() {
     const getSubmit = () => {
       if (this.state.status === 200) {
-        return <p>{this.props.t("contact.thanks")}</p>;
+        return <p>{this.props.t("contact.done")}</p>;
       }
 
-      return <button>{this.props.t("contact.submit")}</button>;
+      if (this.state.status / 400 >= 1) {
+        return <p>{this.props.t("contact.error")}</p>;
+      }
+
+      return <SubmitButton>{this.props.t("contact.submit")}</SubmitButton>;
     };
 
     return (
-      <form
+      <StyledForm
+        className={this.props.className}
         onSubmit={this.submitForm}
         action="https://formspree.io/f/xoqpoyke"
         method="POST"
       >
-        <div>
-          <label>{this.props.t("contact.email")}</label>
-          <input type="email" name="email" />
-        </div>
+        <InputsFieldSet>
+          <FormInput
+            type="email"
+            name="email"
+            placeholder={this.props.t("contact.email")}
+          />
 
-        <div>
-          <label>{this.props.t("contact.subject")}</label>
-          <input type="text" name="subject" />
-        </div>
+          <FormInput
+            type="text"
+            name="subject"
+            placeholder={this.props.t("contact.subject")}
+          />
 
-        <div>
-          <label>{this.props.t("contact.message")}</label>
-          <input type="text" name="message" />
-        </div>
-
+          <FormTextArea
+            name="message"
+            placeholder={this.props.t("contact.message")}
+            rows={15}
+            wrap="soft"
+          />
+        </InputsFieldSet>
         {getSubmit()}
-
-        {this.state.status === 500 && <p>Ooops! There was an error.</p>}
-      </form>
+      </StyledForm>
     );
   }
 
@@ -61,7 +73,8 @@ class ContactForm extends React.Component<ContactFormProps, ContactFormState> {
     const form = event.target;
 
     if (process.env.REACT_APP_NOT_ALLOW_EMAIL) {
-      this.setState({ ...this.state, status: 200 });
+      this.props.highlightSocialMedia();
+      this.setState({ ...this.state, status: 500 });
       return;
     }
 
@@ -74,6 +87,7 @@ class ContactForm extends React.Component<ContactFormProps, ContactFormState> {
     })
       .then((response) => this.setState({ status: response.status }))
       .catch((error) => {
+        this.props.highlightSocialMedia();
         this.setState({ status: 500 });
         console.log(error);
       });
@@ -81,3 +95,60 @@ class ContactForm extends React.Component<ContactFormProps, ContactFormState> {
 }
 
 export default withTranslation()(ContactForm);
+
+const StyledForm = styled.form`
+  width: 100%;
+`;
+
+const InputsFieldSet = styled.fieldset`
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+const FormInput = styled.input`
+  background-color: ${({ theme }) => getTheme(theme).inside};
+  border: none;
+  color: ${({ theme }) => getTheme(theme).text};
+  font-size: 1rem;
+  margin: 0.1rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  ::placeholder {
+    color: ${({ theme }) => getTheme(theme).text};
+    filter: brightness(70%);
+    font-size: 1rem;
+    opacity: 1;
+  }
+`;
+
+const FormTextArea = styled.textarea`
+  background-color: ${({ theme }) => getTheme(theme).inside};
+  border: none;
+  color: ${({ theme }) => getTheme(theme).text};
+  font-size: 1rem;
+  margin: 0.1rem;
+  padding: 0.75rem 1rem;
+  resize: none;
+  width: 100%;
+  ::placeholder {
+    color: ${({ theme }) => getTheme(theme).text};
+    filter: brightness(70%);
+    font-size: 1rem;
+    opacity: 1;
+  }
+`;
+
+const SubmitButton = styled.button`
+  background-color: transparent;
+  border: ${({ theme }) => getTheme(theme).text} solid .1rem;
+  color: ${({ theme }) => getTheme(theme).text};
+  display: block;
+  padding: 0.5rem 1rem.5rem;
+  text-transform: uppercase;
+  margin: 0.25rem;
+  margin-left: auto;
+`;
