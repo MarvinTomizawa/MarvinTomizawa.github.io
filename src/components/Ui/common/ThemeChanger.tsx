@@ -3,23 +3,6 @@ import styled from "styled-components";
 import { ReactComponent as LightbulbOn } from "../../../assets/images/lightbulb-on.svg";
 import { ReactComponent as LightbulbOff } from "../../../assets/images/lightbulb-off.svg";
 
-const Button = styled.button`
-  display: flex;
-  border: none;
-  background-color: transparent;
-  height: 100%;
-`;
-
-const LightbulbOnIcon = styled(LightbulbOn)`
-  width: 100%;
-  height: 100%;
-`;
-
-const LightbulbOffIcon = styled(LightbulbOff)`
-  width: 100%;
-  height: 100%;
-`;
-
 export interface ThemeChangerProps {
   className?: string;
   toggleTheme: any;
@@ -34,3 +17,27 @@ const ThemeChanger: FunctionComponent<ThemeChangerProps> = (props) => {
   );
 };
 export default ThemeChanger;
+
+const Button = styled.button`
+  display: flex;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  &:focus {
+    outline: thin dotted;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const LightbulbOnIcon = styled(LightbulbOn)`
+  width: 100%;
+  height: 100%;
+`;
+
+const LightbulbOffIcon = styled(LightbulbOff)`
+  width: 100%;
+  height: 100%;
+`;
