@@ -1,15 +1,9 @@
 import React from "react";
 import styled, { withTheme } from "styled-components";
 import { withTranslation } from "react-i18next";
-import { getTheme } from "../Variables";
 import { ELanguage } from "../../../models/Router/ELanguage";
 import { Languages } from "../../../configurations/Languages/Languages";
-const StyledSelect = styled.select`
-  border: none;
-  border-radius: 10px;
-  padding-left: 0.3rem;
-  font-size: 1rem;
-`;
+import { getTheme } from "../Variables";
 
 export interface LanguagePickerProps {
   showOnlyIcons: boolean;
@@ -61,12 +55,19 @@ class LanguagePicker extends React.Component<
     this.setState({ language: languageReceived });
     this.props.i18n.changeLanguage(languageReceived);
   }
-
-  get isMobile() {
-    return (
-      window.innerWidth < getTheme(this.props.theme).mobileBreakingPointNumber
-    );
-  }
 }
 
 export default withTranslation()(withTheme(LanguagePicker));
+
+const StyledSelect = styled.select`
+  border: none;
+  border-radius: 10px;
+  padding: 0 0.3rem;
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    font-size: 1.1rem;
+  }
+`;

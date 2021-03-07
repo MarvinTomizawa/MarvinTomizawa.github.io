@@ -48,19 +48,14 @@ const HeaderWrapper = styled.header`
 
 const HeaderLanguagePicker = styled(LanguagePicker)`
   align-self: center;
-  margin-top: 5px;
   position: inherit;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const HeaderTitle = styled.p`
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  width: 45%;
+  width: 35%;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     font-size: 1.2rem;
