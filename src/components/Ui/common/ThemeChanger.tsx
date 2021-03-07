@@ -11,14 +11,14 @@ export interface ThemeChangerProps {
 }
 
 interface ThemeChangerStyleProps {
-  isDarkTheme: boolean;
+  isdarktheme: string;
 }
 
 const ThemeChanger: FunctionComponent<ThemeChangerProps> = (props) => {
   return (
     <Button className={props.className} onClick={props.toggleTheme}>
-      <StyledOnIcon isDarkTheme={props.isDarkTheme}/>
-      <StyledOffIcon isDarkTheme={props.isDarkTheme}/>
+      <StyledOnIcon isdarktheme={String(props.isDarkTheme)} />
+      <StyledOffIcon isdarktheme={String(props.isDarkTheme)} />
     </Button>
   );
 };
@@ -39,11 +39,10 @@ const Button = styled.button`
   }
 `;
 
-const StyledOnIcon = styled(SunIcon).attrs<ThemeChangerStyleProps>(props => ({
-  isDarkTheme: props.isDarkTheme,
-}))
-<ThemeChangerStyleProps>`
-  color:  ${props => props.isDarkTheme ? "black": "orangered"};
+const StyledOnIcon = styled(SunIcon).attrs<ThemeChangerStyleProps>((props) => ({
+  isdarktheme: props.isdarktheme,
+}))<ThemeChangerStyleProps>`
+  color: ${(props) => (props.isdarktheme === "true" ? "black" : "orangered")};
   height: 1rem;
   width: 1rem;
 
@@ -59,11 +58,12 @@ const StyledOnIcon = styled(SunIcon).attrs<ThemeChangerStyleProps>(props => ({
   }
 `;
 
-const StyledOffIcon = styled(MoonIcon).attrs<ThemeChangerStyleProps>(props => ({
-  isDarkTheme: props.isDarkTheme,
-}))
-<ThemeChangerStyleProps>`
-color:  ${props => props.isDarkTheme ? "blueviolet": "black"};
+const StyledOffIcon = styled(MoonIcon).attrs<ThemeChangerStyleProps>(
+  (props) => ({
+    isdarktheme: props.isdarktheme,
+  })
+)<ThemeChangerStyleProps>`
+  color: ${(props) => (props.isdarktheme === "true" ? "blueviolet" : "black")};
   height: 1rem;
   width: 1rem;
 
