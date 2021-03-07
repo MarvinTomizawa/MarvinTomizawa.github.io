@@ -48,7 +48,6 @@ const HeaderWrapper = styled.header`
 
 const HeaderLanguagePicker = styled(LanguagePicker)`
   align-self: center;
-  flex-basis: content;
   margin-top: 5px;
   position: inherit;
 
@@ -58,14 +57,14 @@ const HeaderLanguagePicker = styled(LanguagePicker)`
 `;
 
 const HeaderTitle = styled.p`
-  font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
   width: 45%;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    font-size: 1.2rem;
+  }
 `;
 
-const HeaderThemeChanger = styled(ThemeChanger)`
-  height: 2rem;
-  width: 1.5rem;
-`;
+const HeaderThemeChanger = styled(ThemeChanger)``;

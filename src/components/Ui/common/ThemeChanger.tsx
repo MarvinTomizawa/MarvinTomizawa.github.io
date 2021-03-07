@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import { ReactComponent as LightbulbOn } from "../../../assets/images/lightbulb-on.svg";
-import { ReactComponent as LightbulbOff } from "../../../assets/images/lightbulb-off.svg";
+import { ReactComponent as SunIcon } from "../../../assets/images/header/sun.svg";
+import { ReactComponent as MoonIcon } from "../../../assets/images/header/moon.svg";
+import { getTheme } from "../Variables";
 
 export interface ThemeChangerProps {
   className?: string;
@@ -9,10 +10,15 @@ export interface ThemeChangerProps {
   isDarkTheme: boolean;
 }
 
+interface ThemeChangerStyleProps {
+  isDarkTheme: boolean;
+}
+
 const ThemeChanger: FunctionComponent<ThemeChangerProps> = (props) => {
   return (
     <Button className={props.className} onClick={props.toggleTheme}>
-      {props.isDarkTheme ? <LightbulbOffIcon /> : <LightbulbOnIcon />}
+      <StyledOnIcon isDarkTheme={props.isDarkTheme}/>
+      <StyledOffIcon isDarkTheme={props.isDarkTheme}/>
     </Button>
   );
 };
@@ -20,8 +26,9 @@ export default ThemeChanger;
 
 const Button = styled.button`
   display: flex;
+  background-color: white;
   border: none;
-  background-color: transparent;
+  border-radius: 10px;
   height: 100%;
   &:focus {
     outline: thin dotted;
@@ -32,12 +39,42 @@ const Button = styled.button`
   }
 `;
 
-const LightbulbOnIcon = styled(LightbulbOn)`
-  width: 100%;
-  height: 100%;
+const StyledOnIcon = styled(SunIcon).attrs<ThemeChangerStyleProps>(props => ({
+  isDarkTheme: props.isDarkTheme,
+}))
+<ThemeChangerStyleProps>`
+  color:  ${props => props.isDarkTheme ? "black": "orangered"};
+  height: 1rem;
+  width: 1rem;
+
+  margin: 0.1rem 0.45rem;
+  margin-right: 0.1rem;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    height: 1.25rem;
+    width: 1.25rem;
+
+    margin: 0.15rem 0.75rem;
+    margin-right: 0.25rem;
+  }
 `;
 
-const LightbulbOffIcon = styled(LightbulbOff)`
-  width: 100%;
-  height: 100%;
+const StyledOffIcon = styled(MoonIcon).attrs<ThemeChangerStyleProps>(props => ({
+  isDarkTheme: props.isDarkTheme,
+}))
+<ThemeChangerStyleProps>`
+color:  ${props => props.isDarkTheme ? "blueviolet": "black"};
+  height: 1rem;
+  width: 1rem;
+
+  margin: 0.15rem 0.45rem;
+  margin-left: 0.1rem;
+
+  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
+    height: 1.25rem;
+    width: 1.25rem;
+
+    margin: 0.15rem 0.75rem;
+    margin-left: 0.25rem;
+  }
 `;
