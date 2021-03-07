@@ -1,26 +1,40 @@
 import { useEffect, useState } from "react";
 
+const darkString = "dark";
+const lightString = "light";
+const themeString = "theme";
+
+const isDarkTheme = () => {
+  const localTheme = window.localStorage.getItem(themeString);
+  if (localTheme) {
+    return localTheme === darkString;
+  }
+
+  return false;
+};
+
 export const useDarkTheme = () => {
-  const [isdarkTheme, setIsDarkTheme] = useState(true);
+  const defaultTheme = isDarkTheme();
+  const [isdarkTheme, setIsDarkTheme] = useState(defaultTheme);
 
   const setThemeInStorage = (theme: string) => {
     if (theme) {
-      if (theme === "dark") {
-        window.localStorage.setItem("theme", "dark");
+      if (theme === darkString) {
+        window.localStorage.setItem(themeString, darkString);
       } else {
-        window.localStorage.setItem("theme", "light");
+        window.localStorage.setItem(themeString, lightString);
       }
     }
   };
 
   const toggleTheme = () => {
-    setThemeInStorage(!isdarkTheme ? "light" : "dark");
+    setThemeInStorage(!isdarkTheme ? darkString : lightString);
     setIsDarkTheme(!isdarkTheme);
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme");
-    setThemeInStorage(localTheme || "dark");
+    const localTheme = window.localStorage.getItem(themeString);
+    setThemeInStorage(localTheme || lightString);
   }, []);
 
   return [isdarkTheme, toggleTheme];
