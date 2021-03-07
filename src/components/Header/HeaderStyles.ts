@@ -73,6 +73,10 @@ export const HeaderLanguagePicker = styled(LanguagePicker)`
   right: 0.8rem;
   top: 0.8rem;
   align-self: center;
+  
+  &:hover {
+    cursor: pointer;
+  }
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     position: inherit;
@@ -91,6 +95,10 @@ export const HeaderThemeChanger = styled(ThemeChanger)`
 
   &:focus {
     outline: thin dotted;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {

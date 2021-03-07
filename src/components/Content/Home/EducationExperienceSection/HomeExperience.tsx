@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Timeline from "../../../Ui/common/Timeline/Timeline";
 import { Experiences } from "../../../../configurations/Experience/Experience";
 import { TimelineItemProps } from "../../../Ui/common/Timeline/TimelineItem";
+import WorkCaseIcon from "../../../../assets/images/home-icons/case-icon.png"
 
 interface HomeExperienceProps {
   className?: string;
@@ -28,7 +29,7 @@ const HomeExperience: React.FunctionComponent<HomeExperienceProps> = (
         items={experienceItens}
         descriptionLenght={40}
         mobileDescriptionLenght={40}
-        iconUrl="https://icons-for-free.com/iconfiles/png/512/case+job+work+icon-1320185594726714045.png"
+        iconUrl={WorkCaseIcon}
       />
     </div>
   );

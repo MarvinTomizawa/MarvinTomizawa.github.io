@@ -40,7 +40,6 @@ const StyledSection = styled.section`
 
 const HomeEducationStyled = styled(HomeEducation)`
   height: 50%;
-  margin-bottom: 0.5rem;
   width: 100%;
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     height: 100%;

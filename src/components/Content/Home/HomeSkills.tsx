@@ -41,8 +41,7 @@ export default withMobile(HomeSkills);
 
 const StyledSection = styled.section`
   background-color: ${({ theme }) => getTheme(theme).inside};
-  margin: 0 0.25rem;
-  margin-bottom: 0;
+  margin: 0.25rem ;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     margin: 5rem auto;

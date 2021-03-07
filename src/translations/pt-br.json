@@ -19,5 +19,14 @@
   "home.experience.title": "Experiência",
   "more.content.text": "...mais",
   "home.language.title": "Idiomas",
-  "home.skills.title": "Habilidades"
+  "home.skills.title": "Habilidades",
+
+  "contact.title":"Contato",
+  "contact.subtitle": "Tem alguma pergunta ou quer trabalhar comigo ?",
+  "contact.email": "Seu email",
+  "contact.subject": "Assunto",
+  "contact.message": "Mensagem",
+  "contact.submit": "Enviar",
+  "contact.done": "Obrigado por entrar em contato!!",
+  "contact.error": "Parece que houve um erro, tente entrar em contato em qualquer outra rede social!"
 }
