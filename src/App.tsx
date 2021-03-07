@@ -3,33 +3,13 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Ui/GlobalStyle";
 import { darkColorPalette, lightColorPalette } from "./components/Ui/Variables";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import About from "./components/Content/About/About";
-import Home from "./components/Content/Home/Home";
-import NotFound from "./components/Content/NotFound/NotFound";
-import Header from "./components/Header/Header";
-import RouteModel from "./models/Router/RouteModel";
 import Footer from "./components/Footer/Footer";
-import Skills from "./components/Content/Skills/Skills";
-import Experience from "./components/Content/Experience/Experience";
-import Contact from "./components/Content/Contact/Contact";
-import { useTranslation } from "react-i18next";
 import { useDarkTheme } from "./components/Hooks/useDarkMode";
-import Playground from "./components/Content/Playground/Playground";
 import CustomScrollBar from "./components/Ui/common/CustomScroll";
+import { routes } from "./configurations/Routes/Routes";
+import Header from "./components/Header/Header";
 
 const App: React.FunctionComponent = () => {
-  const { t } = useTranslation();
-
-  const routes: RouteModel[] = [
-    new RouteModel("/", t("header.link.home"), Home, true),
-    new RouteModel("/about", t("header.link.about"), About),
-    new RouteModel("/experience", t("header.link.experience"), Experience),
-    new RouteModel("/skills", t("header.link.skills"), Skills),
-    new RouteModel("/contact", t("header.link.contact"), Contact),
-    new RouteModel("/playground", "", Playground, false, false),
-    new RouteModel("*", t("header.link.notFound"), NotFound, false, false),
-  ];
-
   const mapRoutes = () => {
     return routes.map((route, index) => (
       <Route
@@ -52,11 +32,7 @@ const App: React.FunctionComponent = () => {
 
       <Router>
         <CustomScrollBar>
-          <Header
-            isDarkTheme={isDarkTheme}
-            toggleTheme={toggleTheme}
-            routes={routes}
-          />
+          <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
           <Switch>{mapRoutes()}</Switch>
           <Footer />
         </CustomScrollBar>
