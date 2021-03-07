@@ -46,6 +46,7 @@ class ContactForm extends React.Component<ContactFormProps, ContactFormState> {
         <InputsFieldSet>
           <FormInput
             type="email"
+            required
             name="email"
             placeholder={this.props.t("contact.email")}
           />
@@ -59,6 +60,7 @@ class ContactForm extends React.Component<ContactFormProps, ContactFormState> {
           <FormTextArea
             name="message"
             placeholder={this.props.t("contact.message")}
+            required
             rows={15}
             wrap="soft"
           />

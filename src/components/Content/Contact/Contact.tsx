@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { getTheme } from "../../Ui/Variables";
 import ContentWrapper from "../ContentStyle";
 import ContactForm from "./ContactForm";
-import ContactSocialMedia from "./ContactSocialMedia";
 
 export interface ContactProps {
   t: Function;
@@ -30,7 +29,6 @@ class Contact extends React.Component<ContactProps, ContactState> {
         </TitleWrapper>
 
         <ContactFormStyled highlightSocialMedia={this.highlightSocialMedia} />
-        <ContactSocialMediaStyled isHighlited={this.state.isHighlited} />
       </StyledWrapper>
     );
   }
@@ -70,12 +68,12 @@ const Title = styled.h1`
 `;
 
 const TitleDivision = styled.span`
-  width: 25%;
+  width: 4rem;
   border-bottom: ${({ theme }) => getTheme(theme).text} solid 0.25rem;
   border-radius: 10px;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
-    width: 8%;
+    width: 5rem;
   }
 `;
 
@@ -96,17 +94,5 @@ const ContactFormStyled = styled(ContactForm)`
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     width: 50%;
     margin: 3rem auto;
-  }
-`;
-
-const ContactSocialMediaStyled = styled(ContactSocialMedia)`
-  display: none;
-
-  @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
-    display: block;
-    position: absolute;
-    top: 15%;
-    right: 5%;
-    width: 10%;
   }
 `;
