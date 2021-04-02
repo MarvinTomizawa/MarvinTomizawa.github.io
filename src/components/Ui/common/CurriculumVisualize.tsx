@@ -1,10 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { ELanguage } from "../../../models/Router/ELanguage";
-import DownloadIcon from "../../../assets/images/download-direto.svg";
 import styled from "styled-components";
-import { getTheme } from "../Variables";
-import { Icon } from "./Icon";
 
 interface CurriculumVisualizeProps {
   className?: string;
@@ -33,7 +30,6 @@ const CurriculumVisualize: React.FunctionComponent<CurriculumVisualizeProps> = (
       href={downloadSrc()}
     >
       <p>{t("curriculum.visualize")}</p>
-      <StyledViewIcon />
     </StyledDownload>
   );
 };
@@ -41,17 +37,8 @@ const CurriculumVisualize: React.FunctionComponent<CurriculumVisualizeProps> = (
 export default CurriculumVisualize;
 
 const StyledDownload = styled.a`
+  align-items: top;
   display: flex;
-  height: 1.5rem;
-  width: 10rem;
   padding: 0 0.5rem;
-  align-items: center;
-  color: ${({ theme }) => getTheme(theme).text};
-`;
-
-const StyledViewIcon = styled(Icon)`
-  width: 10%;
-  margin-left: 0.3rem;
-  background-image: url(${DownloadIcon});
-  border: none;
+  font-weight:bold;
 `;

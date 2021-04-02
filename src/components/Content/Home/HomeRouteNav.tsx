@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { routes } from "../../../configurations/Routes/Routes";
+import CurriculumVisualize from "../../Ui/common/CurriculumVisualize";
 import { getTheme } from "../../Ui/Variables";
 
 export interface HomeRouteNavProps {
@@ -23,7 +24,12 @@ const HomeRouteNav: React.FunctionComponent<HomeRouteNavProps> = (props) => {
 
   return (
     <NavWrapper className={props.className}>
-      <StyledList>{mapLinks()}</StyledList>
+      <StyledList>
+        {mapLinks()}
+        <RouteItem>
+          <CurriculumVisualize />
+        </RouteItem>
+      </StyledList>
     </NavWrapper>
   );
 };
@@ -40,15 +46,16 @@ const StyledList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: center;
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
-    justify-content: space-around;
+    justify-content: center;
   }
 `;
 
 const RouteItem = styled.li`
   font-size: 0.9rem;
   font-weight: 600;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
 
   @media (min-width: ${({ theme }) => getTheme(theme).mobileBreakingPoint}) {
     font-size: 1.5rem;

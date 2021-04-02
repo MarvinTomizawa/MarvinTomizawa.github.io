@@ -42,7 +42,7 @@ const Button = styled.button`
 const StyledOnIcon = styled(SunIcon).attrs<ThemeChangerStyleProps>((props) => ({
   isdarktheme: props.isdarktheme,
 }))<ThemeChangerStyleProps>`
-  color: ${(props) => (props.isdarktheme === "true" ? "black" : "orangered")};
+  color: ${(props) => (props.isdarktheme === "true" ? "black" : "#FBE23F")};
   height: 1rem;
   width: 1rem;
 
@@ -63,7 +63,7 @@ const StyledOffIcon = styled(MoonIcon).attrs<ThemeChangerStyleProps>(
     isdarktheme: props.isdarktheme,
   })
 )<ThemeChangerStyleProps>`
-  color: ${(props) => (props.isdarktheme === "true" ? "blueviolet" : "black")};
+  color: ${(props) => (props.isdarktheme === "true" ? "#6700F9" : "black")};
   height: 1rem;
   width: 1rem;
 
